@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgidc6ws42fda"]
+
+[ext_resource type="Script" path="res://src/utils/background/Background.gd" id="1"]
+
+[sub_resource type="Curve2D" id="1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 576, 0)
+}
+point_count = 2
+
+[node name="Background" type="Node2D"]
+z_index = -2
+script = ExtResource("1")
+
+[node name="StarTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="StarPath" type="Path2D" parent="."]
+scale = Vector2(1.98611, 1)
+curve = SubResource("1")
+
+[node name="StarSpawnLocation" type="PathFollow2D" parent="StarPath"]
+
+[connection signal="timeout" from="StarTimer" to="." method="_on_StarTimer_timeout"]

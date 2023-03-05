@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2j7l4bof3j4e"]
+
+[ext_resource type="Script" path="res://src/texts/damage_text/DamageText.gd" id="2"]
+
+[node name="DamageText" type="Marker2D"]
+script = ExtResource("2")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -16.0
+offset_right = 52.0
+offset_bottom = 16.0
+text = "9999999"

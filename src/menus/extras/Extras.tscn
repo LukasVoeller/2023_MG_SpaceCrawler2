@@ -1,0 +1,299 @@
+[gd_scene load_steps=52 format=2]
+
+[ext_resource path="res://assets/ui/buttons/buttons_square/11_right_arrow.png" type="Texture2D" id=1]
+[ext_resource path="res://assets/spaceships/mains/planes_07_A.png" type="Texture2D" id=2]
+[ext_resource path="res://assets/spaceships/mains/planes_02_A 1.png" type="Texture2D" id=3]
+[ext_resource path="res://assets/spaceships/mains/planes_05_A.png" type="Texture2D" id=4]
+[ext_resource path="res://assets/spaceships/mains/planes_01_A 1.png" type="Texture2D" id=5]
+[ext_resource path="res://assets/spaceships/mains/planes_08_A.png" type="Texture2D" id=6]
+[ext_resource path="res://assets/spaceships/mains/planes_04_A.png" type="Texture2D" id=7]
+[ext_resource path="res://assets/spaceships/mains/planes_06_A.png" type="Texture2D" id=8]
+[ext_resource path="res://src/menus/extras/extras.gd" type="Script" id=9]
+[ext_resource path="res://assets/spaceships/mains/planes_03_A 1.png" type="Texture2D" id=10]
+[ext_resource path="res://assets/ui/buttons/buttons_square/11_right_arrow_pick.png" type="Texture2D" id=11]
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 96, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 192, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 288, 0, 96, 96 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 96, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 192, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 288, 0, 96, 96 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 96, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 192, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 288, 0, 96, 96 )
+
+[sub_resource type="SpriteFrames" id=21]
+animations = [ {
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 96, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 192, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 288, 0, 96, 96 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 96, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 192, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 288, 0, 96, 96 )
+
+[sub_resource type="SpriteFrames" id=26]
+animations = [ {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 96, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 192, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 288, 0, 96, 96 )
+
+[sub_resource type="SpriteFrames" id=31]
+animations = [ {
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 96, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 192, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 288, 0, 96, 96 )
+
+[sub_resource type="SpriteFrames" id=36]
+animations = [ {
+"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="AtlasTexture" id=37]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=38]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 96, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=39]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 192, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=40]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 288, 0, 96, 96 )
+
+[sub_resource type="SpriteFrames" id=41]
+animations = [ {
+"frames": [ SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="Control" type="Control" parent="."]
+offset_right = 576.0
+offset_bottom = 1024.0
+
+[node name="BackButton" type="TextureButton" parent="Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -128.0
+offset_right = -64.0
+offset_bottom = -64.0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 11 )
+expand = true
+
+[node name="Ship1" type="AnimatedSprite2D" parent="."]
+position = Vector2( 128, 128 )
+scale = Vector2( 1.33333, 1.33333 )
+frames = SubResource( 6 )
+
+[node name="Ship2" type="AnimatedSprite2D" parent="."]
+position = Vector2( 448, 128 )
+scale = Vector2( 1.33333, 1.33333 )
+frames = SubResource( 11 )
+
+[node name="Ship3" type="AnimatedSprite2D" parent="."]
+position = Vector2( 128, 320 )
+scale = Vector2( 1.33333, 1.33333 )
+frames = SubResource( 21 )
+
+[node name="Ship4" type="AnimatedSprite2D" parent="."]
+position = Vector2( 448, 320 )
+scale = Vector2( 1.33333, 1.33333 )
+frames = SubResource( 16 )
+
+[node name="Ship5" type="AnimatedSprite2D" parent="."]
+position = Vector2( 128, 512 )
+scale = Vector2( 1.33333, 1.33333 )
+frames = SubResource( 26 )
+
+[node name="Ship6" type="AnimatedSprite2D" parent="."]
+position = Vector2( 448, 512 )
+scale = Vector2( 1.33333, 1.33333 )
+frames = SubResource( 31 )
+
+[node name="Ship7" type="AnimatedSprite2D" parent="."]
+position = Vector2( 128, 704 )
+scale = Vector2( 1.33333, 1.33333 )
+frames = SubResource( 36 )
+
+[node name="Ship8" type="AnimatedSprite2D" parent="."]
+position = Vector2( 448, 704 )
+scale = Vector2( 1.33333, 1.375 )
+frames = SubResource( 41 )
+
+[connection signal="pressed" from="Control/BackButton" to="." method="_on_BackButton_pressed"]
