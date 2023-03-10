@@ -23,7 +23,7 @@ func _ready():
 
 
 func shoot(pos):
-	var texture = $TextureLoader.get_texture("weapon", equipped_weapon[0].texture_no)
+	var texture = $TextureLoader.get_texture("weapon", equipped_weapon[0].rarity, equipped_weapon[0].texture_no)
 	var damage_actual
 	
 	if projectiles == 1:

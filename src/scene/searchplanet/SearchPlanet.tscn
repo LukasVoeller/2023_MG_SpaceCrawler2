@@ -1,0 +1,154 @@
+[gd_scene load_steps=10 format=3 uid="uid://ccxek86yx1uhf"]
+
+[ext_resource type="Texture2D" uid="uid://ci6mg8ovjriql" path="res://assets/ui/buttons/buttons_rect/1_orange_button_pick.png" id="1"]
+[ext_resource type="PackedScene" path="res://src/util/background/Background.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://diaaemenansya" path="res://assets/ui/buttons/buttons_rect/1_orange_button.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bkgpvehjpl43w" path="res://assets/ui/bars/bars_center/Frame_square_512.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bxbxdypqdr2jn" path="res://assets/ui/buttons/buttons_square/11_right_arrow_pick.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://de2tpgcubddv7" path="res://assets/ui/buttons/buttons_square/11_right_arrow.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://ck8h8kkj60iwa" path="res://assets/ui/bars/bars_center/Decorated_bar.png" id="7"]
+[ext_resource type="Script" path="res://src/scene/searchplanet/SearchPlanet.gd" id="9"]
+[ext_resource type="PackedScene" path="res://src/addon/pixelplanets/GUI.tscn" id="10"]
+
+[node name="SearchPlanet" type="Node2D"]
+script = ExtResource("9")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlanetTitle" type="TextureRect" parent="Control"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -480.0
+offset_bottom = -224.0
+texture = ExtResource("7")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Control/PlanetTitle"]
+visible = false
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 96.0
+text = "Planet Name"
+
+[node name="PixelPlanets" parent="Control/PlanetTitle" instance=ExtResource("10")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -152.0
+offset_right = 104.0
+offset_bottom = 104.0
+
+[node name="PlanetBar" type="TextureRect" parent="Control"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -64.0
+offset_right = 256.0
+offset_bottom = 480.0
+texture = ExtResource("4")
+stretch_mode = 1
+
+[node name="V" type="VBoxContainer" parent="Control/PlanetBar"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 488.0
+offset_bottom = 224.0
+
+[node name="PlanetSeed" type="HBoxContainer" parent="Control/PlanetBar/V"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/PlanetBar/V/PlanetSeed"]
+layout_mode = 2
+text = "Planet Seed:"
+
+[node name="Value" type="Label" parent="Control/PlanetBar/V/PlanetSeed"]
+layout_mode = 2
+text = "?"
+
+[node name="PlanetColors" type="HBoxContainer" parent="Control/PlanetBar/V"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/PlanetBar/V/PlanetColors"]
+layout_mode = 2
+text = "Color Seed:"
+
+[node name="Value" type="Label" parent="Control/PlanetBar/V/PlanetColors"]
+layout_mode = 2
+text = "?"
+
+[node name="SearchPlanet" type="TextureButton" parent="Control/PlanetBar"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -288.0
+offset_right = 160.0
+offset_bottom = -224.0
+texture_normal = ExtResource("3")
+texture_pressed = ExtResource("1")
+
+[node name="Label" type="Label" parent="Control/PlanetBar/SearchPlanet"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 64.0
+text = "Search Planet"
+
+[node name="SavePlanet" type="TextureButton" parent="Control/PlanetBar"]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -192.0
+offset_right = 160.0
+offset_bottom = -128.0
+texture_normal = ExtResource("3")
+texture_pressed = ExtResource("1")
+
+[node name="Label" type="Label" parent="Control/PlanetBar/SavePlanet"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 64.0
+text = "Save Planet"
+
+[node name="BackButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -128.0
+offset_right = -64.0
+offset_bottom = -64.0
+texture_normal = ExtResource("6")
+texture_pressed = ExtResource("5")
+
+[node name="Background" parent="Control" instance=ExtResource("2")]
+
+[connection signal="pressed" from="Control/PlanetBar/SearchPlanet" to="Control/PlanetTitle/PixelPlanets" method="_on_SearchPlanet_pressed"]
+[connection signal="pressed" from="Control/PlanetBar/SavePlanet" to="Control/PlanetTitle/PixelPlanets" method="_on_SavePlanet_pressed"]
+[connection signal="pressed" from="Control/BackButton" to="Control" method="_on_back_button_pressed"]
+[connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]

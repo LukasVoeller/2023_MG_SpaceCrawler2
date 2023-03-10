@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dadeef3gmf2ao"]
+[gd_scene load_steps=6 format=3 uid="uid://cwayxekr6jcg5"]
 
 [ext_resource type="Script" path="res://src/game/item/chest/ItemChest.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://c8gyg2pqrjgnt" path="res://assets/items/armor/rarity_1/tier_1/chest_1_T1.png" id="2"]
-[ext_resource type="PackedScene" path="res://src/utils/textureloader/TextureLoader.tscn" id="3"]
+[ext_resource type="Texture2D" uid="uid://m3gq8cv14042" path="res://assets/items/armor/chest_1_T1.png" id="2_0ffgu"]
+[ext_resource type="PackedScene" uid="uid://dvegk5s3xp5pp" path="res://src/util/textureloader/TextureLoader.tscn" id="3"]
 [ext_resource type="Script" path="res://src/game/item/ItemDrag.gd" id="5"]
 
 [sub_resource type="RectangleShape2D" id="1"]
@@ -30,7 +30,7 @@ offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(40, 40)
-texture = ExtResource("2")
+texture = ExtResource("2_0ffgu")
 stretch_mode = 4
 script = ExtResource("5")
 

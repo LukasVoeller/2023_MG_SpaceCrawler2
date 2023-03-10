@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 class_name Item
 
@@ -12,7 +12,7 @@ var texture_no
 var equipped = ""
 var type = ""
 
-const Tooltip = preload("res://src/game/item/Tooltip.tscn")
+const Tooltip = preload("res://src/util/tooltip/Tooltip.tscn")
 
 func _ready():
 	pass

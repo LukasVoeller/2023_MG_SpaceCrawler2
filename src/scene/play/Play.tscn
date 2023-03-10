@@ -1,0 +1,296 @@
+[gd_scene load_steps=12 format=3 uid="uid://b0mqhuxm6mr87"]
+
+[ext_resource type="Script" path="res://src/scene/play/Play.gd" id="1"]
+[ext_resource type="PackedScene" path="res://src/util/background/Background.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://bxbxdypqdr2jn" path="res://assets/ui/buttons/buttons_square/11_right_arrow_pick.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://diaaemenansya" path="res://assets/ui/buttons/buttons_rect/1_orange_button.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://ci6mg8ovjriql" path="res://assets/ui/buttons/buttons_rect/1_orange_button_pick.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://b5xrx2klxd5sd" path="res://assets/ui/decors/Decor_Title_options2.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://de2tpgcubddv7" path="res://assets/ui/buttons/buttons_square/11_right_arrow.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://ck8h8kkj60iwa" path="res://assets/ui/bars/bars_center/Decorated_bar.png" id="10"]
+[ext_resource type="PackedScene" path="res://src/scene/inventory/Slot.tscn" id="12"]
+[ext_resource type="Texture2D" uid="uid://dwlrcsc84t601" path="res://assets/ui/bars/bars_center/Frame_square_256_vert.png" id="14"]
+
+[sub_resource type="Environment" id="5"]
+background_mode = 4
+glow_enabled = true
+glow_blend_mode = 1
+
+[node name="Play" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Background" parent="." instance=ExtResource("2")]
+
+[node name="Control" type="Control" parent="."]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 2048.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayHeading2" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -288.0
+offset_top = 64.0
+offset_right = -32.0
+offset_bottom = 192.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 80
+text = "Play"
+horizontal_alignment = 2
+
+[node name="PlayHeading" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -384.0
+offset_top = 160.0
+offset_bottom = 192.0
+grow_horizontal = 0
+texture = ExtResource("8")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="PlanetBar" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -608.0
+offset_right = -32.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10")
+expand_mode = 1
+
+[node name="InfoBar" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -608.0
+offset_right = 512.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14")
+expand_mode = 1
+
+[node name="Slot1" parent="Control/InfoBar" instance=ExtResource("12")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -224.0
+offset_right = -8.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+stretch_mode = 5
+
+[node name="Slot2" parent="Control/InfoBar" instance=ExtResource("12")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -224.0
+offset_right = 200.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+stretch_mode = 5
+
+[node name="PlayBar" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -64.0
+offset_right = 512.0
+offset_bottom = 960.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10")
+expand_mode = 1
+
+[node name="Earlygame" type="TextureButton" parent="Control/PlayBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -384.0
+offset_right = 256.0
+offset_bottom = -256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6")
+texture_pressed = ExtResource("7")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/PlayBar/Earlygame"]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 40
+text = "Earlygame"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Midgame" type="TextureButton" parent="Control/PlayBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -224.0
+offset_right = 256.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6")
+texture_pressed = ExtResource("7")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/PlayBar/Midgame"]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 40
+text = "Midgame"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Endgame" type="TextureButton" parent="Control/PlayBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -64.0
+offset_right = 256.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6")
+texture_pressed = ExtResource("7")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/PlayBar/Endgame"]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 40
+text = "Endgame"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Planets" type="TextureButton" parent="Control/PlayBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = 96.0
+offset_right = 256.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6")
+texture_pressed = ExtResource("7")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/PlayBar/Planets"]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 40
+text = "Planets"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Testscene" type="TextureButton" parent="Control/PlayBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = 256.0
+offset_right = 256.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("6")
+texture_pressed = ExtResource("7")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/PlayBar/Testscene"]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 40
+text = "Testscene"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -192.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("9")
+texture_pressed = ExtResource("3")
+stretch_mode = 5
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("5")
+
+[connection signal="pressed" from="Control/PlayBar/Earlygame" to="." method="_on_earlygame_pressed"]
+[connection signal="pressed" from="Control/PlayBar/Midgame" to="." method="_on_midgame_pressed"]
+[connection signal="pressed" from="Control/PlayBar/Endgame" to="." method="_on_endgame_pressed"]
+[connection signal="pressed" from="Control/PlayBar/Planets" to="." method="_on_planets_pressed"]
+[connection signal="pressed" from="Control/PlayBar/Testscene" to="." method="_on_testscene_pressed"]
+[connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Control/BackButton" to="." method="_on_BackButton_pressed"]

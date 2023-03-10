@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3gowkvi4u0cx"]
+
+[ext_resource type="Script" path="res://src/scene/inventory/SlotPlaceholder.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://b1k8hq7y78i" path="res://assets/ui/inventroy/slot-placeholder_48x48.png" id="2"]
+
+[node name="SlotPlaceholder" type="TextureRect"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(176, 176)
+offset_right = 176.0
+offset_bottom = 176.0
+texture = ExtResource("2")
+expand_mode = 1
+script = ExtResource("1")

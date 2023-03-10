@@ -5,9 +5,9 @@ class_name Asteroid
 signal dead_by_shot
 signal dead_by_playercollision
 
-const damage_text = preload("res://src/texts/damage_text/DamageText.tscn")
-const exp_text = preload("res://src/texts/exp_text/ExpText.tscn")
-const hit_particles = preload("res://src/particles/AsteroidHitParticles.tscn")
+const damage_text = preload("res://src/util/text/damage_text/DamageText.tscn")
+const exp_text = preload("res://src/util/text/exp_text/ExpText.tscn")
+const hit_particles = preload("res://src/util/particle/AsteroidHitParticles.tscn")
 
 var asteroid_tex_1 = preload("res://assets/asteroids/asteroid_01.png")
 var asteroid_tex_2 = preload("res://assets/asteroids/asteroid_02.png")
@@ -110,7 +110,7 @@ func calc_relative(base, relative):
 	var maximum = base + base*relative
 	return rng.randi_range(minimun, maximum)
 
-
+# TODO: Parameter
 func set_level():
 	rng.randomize()
 	if level_base == 1:
@@ -142,7 +142,7 @@ func take_projectile_damage(dmg):
 			if alive:
 				alive = false
 				emit_signal("dead_by_shot")
-				play_asteroid_explosion_animation()
+				explode()
 		
 
 
@@ -161,15 +161,16 @@ func take_spaceship_damage(body):
 			emit_signal("dead_by_playercollision")
 			print("Dead by player")
 			$Control/ProgressBar.value = 0
-			play_asteroid_explosion_animation()
+			explode()
 
-func show_damage(dmg_amount, crit, _pos):
+
+func show_damage(dmg_amount, is_crit, _pos):
 	var dmg_text = damage_text.instantiate()
-	dmg_text.text = dmg_amount
+	dmg_text.text = str(dmg_amount)
 	add_child(dmg_text)
-	dmg_text.display(crit)
-	
-	
+	dmg_text.display(is_crit)
+
+
 func show_particles(pos, angle):
 	var pos_asteroid = self.get_global_transform_with_canvas()
 	var pos_diff_x = pos_asteroid[2].x - pos.x
@@ -186,17 +187,17 @@ func show_particles(pos, angle):
 	add_child(hit_particles_i)
 	
 
-func show_exp(exp_amount):
-	var ep_text = exp_text.instantiate()
-	ep_text.text = exp_amount
-	add_child(ep_text)
+#func show_exp(exp_amount):
+#	var ep_text = exp_text.instantiate()
+#	ep_text.text = exp_amount
+#	add_child(ep_text)
 
 
-func play_asteroid_explosion_animation():
+func explode():
 	#$CollisionPolygon2D.queue_free()
 	$Control/Level.hide()
-	$Sprite2D.hide()
 	$Control/ProgressBar.hide()
+	$Sprite2D.hide()
 	$ExplosionAnimation.show()
 	$ExplosionAnimation.play()
 

@@ -26,6 +26,7 @@ var weapon
 var input_is_pressed = false
 var input_is_pressed_and_dragging = false
 var game_paused = false
+var level_cleard = false
 
 
 func _ready():
@@ -164,7 +165,7 @@ func _input(event):
 
 # Collision
 func _on_Player_body_entered(body):
-	if body is Asteroid:
+	if body is Asteroid and not level_cleard:
 		print("Spaceship HP: ", hp_current, "Asteroid DMG: ", body.damage)
 		if (hp_current - body.damage) > 0:
 			self.take_damage(body)
@@ -173,7 +174,7 @@ func _on_Player_body_entered(body):
 		else:	# Fatal hit
 			$SpaceshipCollision.set_deferred("disabled", true)
 			self.take_damage(body)
-			body.take_damage(body.hp)
+			body.take_spaceship_damage(body.hp)
 			emit_signal("hit")
 	
 	elif body is Powerup:
@@ -207,7 +208,7 @@ func _on_Player_body_entered(body):
 		elif body.type == 4:
 			pass
 			
-	elif body is ItemWeapon or body is ItemChest or body is ItemHead:
+	elif body is ItemWeapon or body is ItemShield or body is ItemHands or body is ItemHead or body is ItemChest or body is ItemFeet:
 		print("Item collision")
 		body.collect()
 			
@@ -238,16 +239,6 @@ func _on_WeaponBoostTimer_timeout():
 
 
 func _on_WeaponTimer_timeout():
-	shoot()
-	pass
-#	if !game_paused:
-#		if input_is_pressed_and_dragging:
-#			if $WeaponTimer.is_stopped():
-#				if hp_current > 0:
-#					shoot()
-#		elif auto_shoot:
-#			if $WeaponTimer.is_stopped():
-#				if hp_current > 0:
-#					shoot()
-#	shoot()
+	if not game_paused:
+		shoot()
 

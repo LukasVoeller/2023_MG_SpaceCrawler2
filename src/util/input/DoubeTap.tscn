@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://diplmnwj523y7"]
+
+[ext_resource type="Script" path="res://src/util/input/DoubeTap.gd" id="1"]
+
+[node name="TouchScreenButton" type="TouchScreenButton"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.421875, 0.296875)
+script = ExtResource("1")

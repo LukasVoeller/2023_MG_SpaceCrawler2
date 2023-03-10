@@ -1,0 +1,461 @@
+[gd_scene load_steps=6 format=3 uid="uid://dht1ipgxc86bk"]
+
+[ext_resource type="Script" path="res://src/game/item/shield/ItemShield.gd" id="1_4a5r2"]
+[ext_resource type="Texture2D" uid="uid://cwunb8e8i88on" path="res://assets/items/shields/shield_1_T1-1.png" id="2_i0xex"]
+[ext_resource type="Script" path="res://src/game/item/ItemDrag.gd" id="3_wb832"]
+[ext_resource type="PackedScene" uid="uid://dvegk5s3xp5pp" path="res://src/util/textureloader/TextureLoader.tscn" id="4_h7olb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikv7m"]
+size = Vector2(128, 128)
+
+[node name="ItemShield" type="RigidBody2D"]
+collision_layer = 64
+collision_mask = 86
+mass = 5.0
+gravity_scale = 0.0
+script = ExtResource("1_4a5r2")
+
+[node name="Texture2D" type="TextureRect" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(48, 48)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(40, 40)
+texture = ExtResource("2_i0xex")
+stretch_mode = 5
+script = ExtResource("3_wb832")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ikv7m")
+
+[node name="Background_1" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background_A" type="ColorRect" parent="Background_1"]
+modulate = Color(1.4, 1.4, 1.4, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -56.0
+offset_right = -56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.392157, 0.392157, 0.392157, 1)
+
+[node name="Background_B" type="ColorRect" parent="Background_1"]
+modulate = Color(1.4, 1.4, 1.4, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -64.0
+offset_right = 56.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.392157, 0.392157, 0.392157, 1)
+
+[node name="Background_C" type="ColorRect" parent="Background_1"]
+modulate = Color(1.4, 1.4, 1.4, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_top = -56.0
+offset_right = 64.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.392157, 0.392157, 0.392157, 1)
+
+[node name="Background_D" type="ColorRect" parent="Background_1"]
+modulate = Color(1.4, 1.4, 1.4, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 56.0
+offset_right = 56.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.392157, 0.392157, 0.392157, 1)
+
+[node name="Background_2" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background_A" type="ColorRect" parent="Background_2"]
+modulate = Color(1, 1.8, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -56.0
+offset_right = -56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0.509804, 0, 1)
+
+[node name="Background_B" type="ColorRect" parent="Background_2"]
+modulate = Color(1, 1.8, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -64.0
+offset_right = 56.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0.509804, 0, 1)
+
+[node name="Background_C" type="ColorRect" parent="Background_2"]
+modulate = Color(1, 1.8, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_top = -56.0
+offset_right = 64.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0.509804, 0, 1)
+
+[node name="Background_D" type="ColorRect" parent="Background_2"]
+modulate = Color(1, 1.8, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 56.0
+offset_right = 56.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0.509804, 0, 1)
+
+[node name="Background_3" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background_A" type="ColorRect" parent="Background_3"]
+modulate = Color(1, 1, 1.5, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -56.0
+offset_right = -56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0.376471, 0.823529, 1)
+
+[node name="Background_B" type="ColorRect" parent="Background_3"]
+modulate = Color(1, 1, 1.5, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -64.0
+offset_right = 56.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0.376471, 0.823529, 1)
+
+[node name="Background_C" type="ColorRect" parent="Background_3"]
+modulate = Color(1, 1, 1.5, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_top = -56.0
+offset_right = 64.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0.376471, 0.823529, 1)
+
+[node name="Background_D" type="ColorRect" parent="Background_3"]
+modulate = Color(1, 1, 1.5, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 56.0
+offset_right = 56.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0.376471, 0.823529, 1)
+
+[node name="Background_4" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background_A" type="ColorRect" parent="Background_4"]
+modulate = Color(1.3, 1, 1.3, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -56.0
+offset_right = -56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.572549, 0, 0.964706, 1)
+
+[node name="Background_B" type="ColorRect" parent="Background_4"]
+modulate = Color(1.3, 1, 1.3, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -64.0
+offset_right = 56.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.572549, 0, 0.964706, 1)
+
+[node name="Background_C" type="ColorRect" parent="Background_4"]
+modulate = Color(1.3, 1, 1.3, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_top = -56.0
+offset_right = 64.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.572549, 0, 0.964706, 1)
+
+[node name="Background_D" type="ColorRect" parent="Background_4"]
+modulate = Color(1.3, 1, 1.3, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 56.0
+offset_right = 56.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.572549, 0, 0.964706, 1)
+
+[node name="Background_5" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Background_A" type="ColorRect" parent="Background_5"]
+modulate = Color(1.4, 1, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -56.0
+offset_right = -56.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.568627, 0.164706, 1)
+
+[node name="Background_B" type="ColorRect" parent="Background_5"]
+modulate = Color(1.4, 1, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -64.0
+offset_right = 56.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.568627, 0.164706, 1)
+
+[node name="Background_C" type="ColorRect" parent="Background_5"]
+modulate = Color(1.4, 1, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_top = -56.0
+offset_right = 64.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.568627, 0.164706, 1)
+
+[node name="Background_D" type="ColorRect" parent="Background_5"]
+modulate = Color(1.4, 1, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 56.0
+offset_right = 56.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.568627, 0.164706, 1)
+
+[node name="TextureLoader" parent="." instance=ExtResource("4_h7olb")]
+
+[connection signal="gui_input" from="Texture2D" to="Texture2D" method="_on_TestTexture_gui_input"]

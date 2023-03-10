@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://dh4vfsysnem4"]
 
-[ext_resource path="res://src/game/player/Player.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://src/game/player/Player.gd" id="1"]
 
 [node name="Player" type="Node2D" groups=["Persist"]]
-script = ExtResource( 1 )
+script = ExtResource("1")

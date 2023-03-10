@@ -1,13 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://c3r7gxxkdecas"]
+[gd_scene load_steps=38 format=3 uid="uid://c3r7gxxkdecas"]
 
 [ext_resource type="Texture2D" uid="uid://uc3rk788818f" path="res://assets/explosions/explosion_1.png" id="1"]
 [ext_resource type="Script" path="res://src/game/asteroid/Asteroid.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://qsqe6bvdetvu" path="res://assets/explosions/explosion_2.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://0d7iytht6ae3" path="res://assets/asteroids/asteroid_01.png" id="4"]
 [ext_resource type="Script" path="res://src/game/asteroid/Level.gd" id="7"]
-
-[sub_resource type="PhysicsMaterial" id="33"]
-bounce = 0.25
 
 [sub_resource type="Shader" id="31"]
 code = "shader_type canvas_item;
@@ -251,8 +248,8 @@ bg_color = Color(1, 0, 0, 1)
 [node name="Asteroid" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 47
-physics_material_override = SubResource("33")
 gravity_scale = 0.0
+lock_rotation = true
 script = ExtResource("2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

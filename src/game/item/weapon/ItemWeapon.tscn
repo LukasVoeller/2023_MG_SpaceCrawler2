@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwi4o377gx13l"]
+[gd_scene load_steps=6 format=3 uid="uid://bt0ojhsoxj6kw"]
 
 [ext_resource type="Script" path="res://src/game/item/weapon/ItemWeapon.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://dchsyytvf43re" path="res://assets/items/swords/rarity_1/1.png" id="2"]
-[ext_resource type="PackedScene" path="res://src/utils/textureloader/TextureLoader.tscn" id="3"]
+[ext_resource type="Texture2D" uid="uid://dbkl56e0lsuwq" path="res://assets/items/swords/sword_1_1.png" id="2_rjn5d"]
+[ext_resource type="PackedScene" uid="uid://dvegk5s3xp5pp" path="res://src/util/textureloader/TextureLoader.tscn" id="3"]
 [ext_resource type="Script" path="res://src/game/item/ItemDrag.gd" id="5"]
 
 [sub_resource type="RectangleShape2D" id="1"]
@@ -31,7 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.785398
 pivot_offset = Vector2(40, 40)
-texture = ExtResource("2")
+texture = ExtResource("2_rjn5d")
 stretch_mode = 5
 script = ExtResource("5")
 

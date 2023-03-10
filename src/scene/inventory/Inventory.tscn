@@ -1,0 +1,315 @@
+[gd_scene load_steps=16 format=3 uid="uid://qnbiesnteplp"]
+
+[ext_resource type="Script" path="res://src/scene/inventory/Inventory.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://de2tpgcubddv7" path="res://assets/ui/buttons/buttons_square/11_right_arrow.png" id="3"]
+[ext_resource type="PackedScene" path="res://src/util/background/Background.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://dsjfhhaefseqs" path="res://assets/ui/buttons/buttons_square/11_bot_arrow.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://ctqsqh4x1tulm" path="res://assets/ui/bars/bars_center/Frame_square_768.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://csp6ybfmp8as" path="res://assets/ui/bars/bars_center/BAR_Basic.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://belf0qcsvwucj" path="res://assets/ui/buttons/buttons_square/11_bot_arrow_pick.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://bxbxdypqdr2jn" path="res://assets/ui/buttons/buttons_square/11_right_arrow_pick.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://di81lbcvg7ism" path="res://assets/ui/bars/bars_center/Frame_bg_big.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://ks1yyws7i3f6" path="res://assets/ui/buttons/buttons_square/11_top_arrow.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://d21g3ja1mb3ht" path="res://assets/ui/buttons/buttons_square/11_top_arrow_pick.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://ct0tvif8spk84" path="res://assets/ui/player/Knight_equipment.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://ci6mg8ovjriql" path="res://assets/ui/buttons/buttons_rect/1_orange_button_pick.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://diaaemenansya" path="res://assets/ui/buttons/buttons_rect/1_orange_button.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://b3kmuyp80jy0q" path="res://assets/icons_game/rpg/32_coin.png" id="17"]
+
+[node name="Inventory" type="Node2D"]
+script = ExtResource("2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_right = 512.0
+offset_bottom = 960.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Control/Inventory"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6")
+expand_mode = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Inventory"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -448.0
+offset_top = -440.0
+offset_right = 448.0
+offset_bottom = 344.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control/Inventory/ScrollContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="Items" type="Label" parent="Control/Inventory"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 840.0
+offset_right = 832.0
+offset_bottom = 928.0
+theme_override_font_sizes/font_size = 40
+text = "Items: 100"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Sort" type="TextureButton" parent="Control/Inventory"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 64.0
+offset_top = 840.0
+offset_right = 424.0
+offset_bottom = 928.0
+texture_normal = ExtResource("16")
+texture_pressed = ExtResource("15")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/Inventory/Sort"]
+layout_mode = 0
+offset_right = 360.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 40
+text = "Sort"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatsSheet" type="Control" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -8.0
+offset_right = 512.0
+offset_bottom = 768.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Control/StatsSheet"]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 776.0
+texture = ExtResource("10")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control/StatsSheet"]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 776.0
+theme_override_font_sizes/font_size = 80
+text = "Comming soon!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -960.0
+offset_right = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundRight" type="TextureRect" parent="Control/Player"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -480.0
+offset_right = 512.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7")
+expand_mode = 1
+
+[node name="GridContainerRight" type="GridContainer" parent="Control/Player/BackgroundRight"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 192.0
+offset_top = -320.0
+offset_right = 384.0
+offset_bottom = 376.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainerLeft" type="GridContainer" parent="Control/Player/BackgroundRight"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -320.0
+offset_right = -192.0
+offset_bottom = 376.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/Player/BackgroundRight"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -320.0
+offset_right = 192.0
+offset_bottom = 376.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13")
+stretch_mode = 5
+
+[node name="Playername" type="Label" parent="Control/Player/BackgroundRight"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -384.0
+offset_top = 48.0
+offset_bottom = 96.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Playername"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="Control/Player/BackgroundRight"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 48.0
+offset_right = 384.0
+offset_bottom = 96.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Level 7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="Label" parent="Control/Player/BackgroundRight"]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 808.0
+offset_right = 848.0
+offset_bottom = 856.0
+theme_override_font_sizes/font_size = 30
+text = "125.369 "
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/Player/BackgroundRight/Credits"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -24.0
+offset_right = 48.0
+offset_bottom = 24.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("17")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ShowStatsButton" type="TextureButton" parent="Control/Player"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 448.0
+offset_top = 864.0
+offset_right = 576.0
+offset_bottom = 992.0
+texture_normal = ExtResource("5")
+texture_pressed = ExtResource("8")
+stretch_mode = 5
+
+[node name="HideStatsButton" type="TextureButton" parent="Control/Player"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 448.0
+offset_top = 864.0
+offset_right = 576.0
+offset_bottom = 992.0
+texture_normal = ExtResource("11")
+texture_pressed = ExtResource("12")
+stretch_mode = 5
+
+[node name="BackButton" type="TextureButton" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -192.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("3")
+texture_pressed = ExtResource("9")
+stretch_mode = 5
+
+[node name="Background" parent="Control" instance=ExtResource("4")]
+
+[connection signal="pressed" from="Control/Player/ShowStatsButton" to="." method="_on_show_stats_button_pressed"]
+[connection signal="pressed" from="Control/Player/ShowStatsButton" to="Control" method="_on_ShowStatsButton_pressed"]
+[connection signal="pressed" from="Control/Player/HideStatsButton" to="." method="_on_hide_stats_button_pressed"]
+[connection signal="pressed" from="Control/Player/HideStatsButton" to="Control" method="_on_HideStatsButton_pressed"]
+[connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Control/BackButton" to="Control" method="_on_back_button_pressed"]
