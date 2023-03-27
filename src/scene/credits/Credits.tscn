@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://ccyf5kyr3lx5d"]
 
 [ext_resource type="FontFile" uid="uid://bi1dwkkedk1oh" path="res://assets/fonts/PixelSplitter-Bold.ttf" id="2"]
-[ext_resource type="Texture2D" uid="uid://wybjedysslry" path="res://assets/ui/decors/Decor_Title_options_long.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://de5omd1f81gu4" path="res://assets/ui/darkpixelrpg/decors/line/decor_line_simple.png" id="3_icqso"]
 [ext_resource type="Script" path="res://src/scene/credits/Credits.gd" id="4"]
-[ext_resource type="Texture2D" uid="uid://de2tpgcubddv7" path="res://assets/ui/buttons/buttons_square/11_right_arrow.png" id="5"]
-[ext_resource type="Texture2D" uid="uid://bxbxdypqdr2jn" path="res://assets/ui/buttons/buttons_square/11_right_arrow_pick.png" id="6"]
-[ext_resource type="PackedScene" path="res://src/util/background/Background.tscn" id="7"]
+[ext_resource type="Texture2D" uid="uid://ckag2bqi51gjg" path="res://assets/ui/darkpixelrpg/buttons/square/button_arrow_right.png" id="4_r72a7"]
+[ext_resource type="Texture2D" uid="uid://dhhe7pywud1kx" path="res://assets/ui/darkpixelrpg/buttons/square/button_arrow_right_pressed.png" id="5_hy7m0"]
+[ext_resource type="PackedScene" uid="uid://bse16ghhh80i6" path="res://src/util/background/Background.tscn" id="7"]
 
 [node name="Credits" type="Node2D"]
 script = ExtResource("4")
@@ -36,10 +36,10 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -512.0
 offset_top = 128.0
-offset_right = 504.0
+offset_right = 512.0
 offset_bottom = 192.0
 grow_horizontal = 2
-texture = ExtResource("3")
+texture = ExtResource("3_icqso")
 expand_mode = 1
 stretch_mode = 5
 
@@ -78,11 +78,11 @@ offset_right = -64.0
 offset_bottom = -64.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("5")
-texture_pressed = ExtResource("6")
+texture_normal = ExtResource("4_r72a7")
+texture_pressed = ExtResource("5_hy7m0")
 stretch_mode = 5
 
 [node name="Background" parent="Control" instance=ExtResource("7")]
 
-[connection signal="pressed" from="Control/BackButton" to="Control" method="_on_back_button_pressed"]
 [connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Control/BackButton" to="Control" method="_on_back_button_pressed"]

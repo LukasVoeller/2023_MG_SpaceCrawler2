@@ -15,10 +15,9 @@ var asteroid_tex_3 = preload("res://assets/asteroids/asteroid_03.png")
 
 var rng = RandomNumberGenerator.new()
 
-var level_base = Global.asteroid_level
-var level = set_level()
+var level = Global.asteroid_level
 
-var hp_base = level * 20
+var hp_base = level * 100
 var hp_relative = 0.25
 var hp_max
 var hp
@@ -27,10 +26,10 @@ var damage_base = level * 10
 var damage_relative = 0.15
 var damage
 
-var exp_give_base = level * 10
-var exp_give_relative = 0.15
+var exp_give_base = level * 5
 var exp_give
 
+var credits_chance = 50
 var credits_base = level * 1
 var credits_relative = 0.15
 var credits
@@ -95,8 +94,13 @@ func _ready():
 	hp = calc_relative(hp_base, hp_relative)
 	hp_max = hp
 	damage = calc_relative(damage_base, damage_relative)
-	exp_give = calc_relative(exp_give_base, exp_give_relative)
-	credits = calc_relative(credits_base, credits_relative)
+	exp_give = rng.randi_range(round(exp_give_base * 0.8), round(exp_give_base * 1.2))
+	
+	var gives_credits = rng.randi_range(1, 100)
+	if gives_credits <= credits_chance:
+		credits = calc_relative(credits_base, credits_relative)
+	else:
+		credits = 0
 	
 	$ExplosionAnimation.animation = "explosion_2"
 	$ExplosionAnimation.hide()
@@ -111,12 +115,12 @@ func calc_relative(base, relative):
 	return rng.randi_range(minimun, maximum)
 
 # TODO: Parameter
-func set_level():
-	rng.randomize()
-	if level_base == 1:
-		return rng.randi_range(level_base, level_base+1)
-	else:
-		return rng.randi_range(level_base-1, level_base+1)
+#func set_level():
+#	rng.randomize()
+#	if level_base == 1:
+#		return rng.randi_range(level_base, level_base+1)
+#	else:
+#		return rng.randi_range(level_base-1, level_base+1)
 
 
 func _process(delta):
@@ -166,7 +170,7 @@ func take_spaceship_damage(body):
 
 func show_damage(dmg_amount, is_crit, _pos):
 	var dmg_text = damage_text.instantiate()
-	dmg_text.text = str(dmg_amount)
+	dmg_text.text = str(dot_seperate(dmg_amount))
 	add_child(dmg_text)
 	dmg_text.display(is_crit)
 
@@ -180,7 +184,7 @@ func show_particles(pos, angle):
 	hit_particles_i.emitting = true
 	hit_particles_i.one_shot = true
 	hit_particles_i.position.x -= pos_diff_x
-	hit_particles_i.position.y -= pos_diff_y
+	hit_particles_i.position.y -= pos_diff_y + 50
 	hit_particles_i.process_material.direction.x = angle.x
 	hit_particles_i.process_material.direction.y = angle.y
 	
@@ -208,3 +212,16 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _on_ExplosionAnimation_animation_finished():
 	self.queue_free()
+	
+
+func dot_seperate(number):
+	var string = str(number)
+	var mod = string.length() % 3
+	var res = ""
+
+	for i in range(0, string.length()):
+		if i != 0 && i % 3 == mod:
+			res += "."
+		res += string[i]
+
+	return res

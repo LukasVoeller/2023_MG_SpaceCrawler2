@@ -10,7 +10,7 @@ func _ready():
 func init(_name, rar, lvl, upgr, val, tex_no, equ, _type):
 	item_name = _name
 	rarity = rar
-	level = rar
+	level = lvl
 	upgrade = upgr
 	value = val
 

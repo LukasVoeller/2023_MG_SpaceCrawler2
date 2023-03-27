@@ -2,13 +2,15 @@
 extends "res://src/game/item/Item.gd"
 
 #class_name ItemDisplay
-#const Tooltip = preload("res://src/utils/tooltips/Tooltip.tscn")
+#const Tooltip = preload("res://src/util/tooltips/Tooltip.tscn")
 
 var rng = RandomNumberGenerator.new()
 
 func _ready():
 	if upgrade > 0:
 		$Upgrade.text = "+" + str(upgrade)
+	else:
+		$Upgrade.text = ""
 	$Level.text = str(level)
 	#print("Instanced ItemDisplay")
 
@@ -125,15 +127,18 @@ func init(_name, rar, lvl, upgr, val, tex_no, equ, _type):
 			
 	if type == "weapon":
 		$Texture2D.rotation = 45
-		$Texture2D.position.x += 40
-		$Texture2D.position.y -= 20
+		$Texture2D.position.x += 110
+		$Texture2D.position.y -= 40
 
 
 func _on_touch_screen_button_double_tap():
-	print("TAPPED")
-	var tooltip_i = Tooltip.instantiate()
-	add_child(tooltip_i)
-	tooltip_i.popup()
+	print("Trigger")
+	print(global_position)
+	$PopupPanel.position = global_position
+	#$PopupPanel.position.y = global_position.y - 750
+	$PopupPanel.popup()
+	
+
 	
 #	if get_tree().get_current_scene().get_name() == "Inventory" or get_tree().get_current_scene().get_name() == "Play":
 #		print("TAPPED")

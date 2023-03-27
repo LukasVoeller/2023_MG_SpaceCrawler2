@@ -5,7 +5,7 @@ var projectile = preload("res://src/game/projectile/Projectile.tscn")
 var rng = RandomNumberGenerator.new()
 
 var level = Global.weapon_level
-var damage_base = level * 20
+var damage_base = level * 25
 var damage_relative = 0.15
 var attack_speed = Global.weapon_atk_speed
 var w_crit_chance = Global.weapon_crit_chance

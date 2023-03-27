@@ -46,10 +46,6 @@ func spawn_asteroids():
 	add_child(asteroid_3)
 
 
-func _on_BackButton_pressed():
-	get_tree().change_scene_to_file("res://src/scenes/play/Play.tscn")
-
-
 func _on_PlusATKSPDButton_pressed():
 	$Spaceship/WeaponTimer.wait_time *= 0.8
 
@@ -66,3 +62,7 @@ func _on_PlusProjectileButton_pressed():
 func _on_MinusProjectileButton_pressed():
 	$Spaceship/Weapon.projectiles -= 1
 	Global.weapon_projectiles -= 1
+
+
+func _on_back_button_pressed():
+	get_tree().change_scene_to_file("res://src/scene/play/Play.tscn")

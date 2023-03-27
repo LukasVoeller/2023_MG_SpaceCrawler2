@@ -12,8 +12,8 @@ var scale_factor
 func _ready():
 	rng.randomize()
 	# TODO: optimze float rng
-	scale_factor = randf_range(0.5, 1.5)
-	speed = rng.randi_range(500, 1500)
+	scale_factor = randf_range(Global.star_size_min, Global.star_size_max)
+	speed = rng.randi_range(Global.star_speed_min, Global.star_speed_max)
 	
 	scale *= scale_factor
 	$VisibleOnScreenNotifier2D.scale *= scale_factor

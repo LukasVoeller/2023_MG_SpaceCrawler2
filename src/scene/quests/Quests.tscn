@@ -1,0 +1,116 @@
+[gd_scene load_steps=7 format=3 uid="uid://riyimqyqxfn5"]
+
+[ext_resource type="Script" path="res://src/scene/quests/Quests.gd" id="1_uxvhe"]
+[ext_resource type="Texture2D" uid="uid://cej042o468ur2" path="res://assets/ui/darkpixelrpg/bars/frame_0.png" id="2_wrp3v"]
+[ext_resource type="Texture2D" uid="uid://q3ockqnj1m3k" path="res://assets/ui/darkpixelrpg/bars/frame_4_241 × 144.png" id="4_jbtni"]
+[ext_resource type="Texture2D" uid="uid://pjtvdnyblc7d" path="res://assets/ui/darkpixelrpg/buttons/square/button_arrow_left.png" id="5_72yo0"]
+[ext_resource type="FontFile" uid="uid://bi1dwkkedk1oh" path="res://assets/fonts/PixelSplitter-Bold.ttf" id="5_qnk1t"]
+[ext_resource type="Texture2D" uid="uid://dun4llbklmvdj" path="res://assets/ui/darkpixelrpg/buttons/square/button_arrow_left_pressed.png" id="6_sthsm"]
+
+[node name="Quests" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_uxvhe")
+
+[node name="Control" type="Control" parent="."]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 2048.0
+
+[node name="Background" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -960.0
+offset_right = 512.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wrp3v")
+stretch_mode = 5
+
+[node name="Heading" type="Label" parent="Control/Background"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 64.0
+offset_top = 56.0
+offset_right = 960.0
+offset_bottom = 120.0
+theme_override_fonts/font = ExtResource("5_qnk1t")
+theme_override_font_sizes/font_size = 40
+text = "Quests"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Background"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 184.0
+offset_right = 908.0
+offset_bottom = 1104.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Background/ScrollContainer"]
+layout_mode = 2
+
+[node name="Details" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = 256.0
+offset_right = 512.0
+offset_bottom = 960.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_jbtni")
+
+[node name="QuestTitle" type="Label" parent="Control/Details"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 960.0
+offset_bottom = 192.0
+theme_override_font_sizes/font_size = 56
+text = "none"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuestInfo" type="Label" parent="Control/Details"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 960.0
+offset_bottom = 640.0
+theme_override_font_sizes/font_size = 36
+text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+clip_text = true
+
+[node name="BackButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -192.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("5_72yo0")
+texture_pressed = ExtResource("6_sthsm")
+stretch_mode = 0
+
+[connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]

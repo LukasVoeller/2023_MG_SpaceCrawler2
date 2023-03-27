@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Space Crawler 2"
-run/main_scene="res://src/main/Main.tscn"
+run/main_scene="res://src/scene/inventory/Inventory.tscn"
 config/features=PackedStringArray("4.0")
 boot_splash/image="res://icon.png"
 config/icon="res://icon.png"
@@ -41,7 +41,7 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_2="player"
 2d_physics/layer_3="asteroid"
 2d_physics/layer_4="player_projectile"
-2d_physics/layer_5="pickup"
+2d_physics/layer_5="powerup"
 2d_physics/layer_6="spawner"
 2d_physics/layer_7="item"
 

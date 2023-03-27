@@ -70,9 +70,12 @@ func fill_equipped():
 
 
 func _on_earlygame_pressed():
-	Global.asteroid_level = 2
-	#Global.asteroid_timer = 0.5
-	Global.weapon_atk_speed = 0.3
+	Global.asteroid_level = 1
+	Global.asteroid_timer = 1
+	Global.asteroid_velocity_y_min = 200
+	Global.asteroid_velocity_y_max = 400
+	
+	Global.weapon_atk_speed = 0.4
 	Global.weapon_projectiles = 1
 	Global.weapon_level = 1
 	Global.spaceship_hp_max = 100
@@ -80,21 +83,27 @@ func _on_earlygame_pressed():
 
 
 func _on_midgame_pressed():
-	Global.asteroid_level = 50
-	#Global.asteroid_timer = 0.5
+	Global.asteroid_level = 30
+	Global.asteroid_timer = 0.75
+	Global.asteroid_velocity_y_min = 250
+	Global.asteroid_velocity_y_max = 550
+
 	Global.weapon_atk_speed = 0.3
-	Global.weapon_projectiles = 3
-	Global.weapon_level = 20
+	Global.weapon_projectiles = 1
+	Global.weapon_level = 30
 	Global.spaceship_hp_max = 1000
 	get_tree().change_scene_to_file("res://src/scene/gameloop/Gameloop.tscn")
 
 
 func _on_endgame_pressed():
-	Global.asteroid_level = 98
-	#Global.asteroid_timer = 0.2
-	Global.weapon_atk_speed = 0.1
-	Global.weapon_projectiles = 5
-	Global.weapon_level = 5
+	Global.asteroid_level = 60
+	Global.asteroid_timer = 0.5
+	Global.asteroid_velocity_y_min = 300
+	Global.asteroid_velocity_y_max = 700
+
+	Global.weapon_atk_speed = 0.2
+	Global.weapon_projectiles = 1
+	Global.weapon_level = 60
 	Global.spaceship_hp_max = 10000
 	get_tree().change_scene_to_file("res://src/scene/gameloop/Gameloop.tscn")
 

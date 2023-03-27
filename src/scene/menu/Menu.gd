@@ -10,9 +10,6 @@ func _ready():
 	print(Global.damage_dealt_per_second_max)
 	print(Global.damage_dealt_per_second)
 	print(Global.damage_dealt_total)
-	
-	var device_width = get_viewport_rect().size.x
-	var device_height = get_viewport_rect().size.y
 
 
 func _on_play_button_pressed():

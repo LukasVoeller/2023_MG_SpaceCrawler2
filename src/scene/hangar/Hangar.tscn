@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://c65b6nddkesvr"]
+[gd_scene load_steps=11 format=3 uid="uid://c65b6nddkesvr"]
 
 [ext_resource type="Script" path="res://src/scene/hangar/Hangar.gd" id="1_uampd"]
-[ext_resource type="PackedScene" path="res://src/util/background/Background.tscn" id="2_hgy68"]
-[ext_resource type="Texture2D" uid="uid://b5xrx2klxd5sd" path="res://assets/ui/decors/Decor_Title_options2.png" id="3_8kga1"]
-[ext_resource type="Texture2D" uid="uid://di81lbcvg7ism" path="res://assets/ui/bars/bars_center/Frame_bg_big.png" id="4_hjpmn"]
-[ext_resource type="Texture2D" uid="uid://ck8h8kkj60iwa" path="res://assets/ui/bars/bars_center/Decorated_bar.png" id="5_30xov"]
-[ext_resource type="Texture2D" uid="uid://diaaemenansya" path="res://assets/ui/buttons/buttons_rect/1_orange_button.png" id="6_onto0"]
-[ext_resource type="Texture2D" uid="uid://ci6mg8ovjriql" path="res://assets/ui/buttons/buttons_rect/1_orange_button_pick.png" id="7_1mktm"]
-[ext_resource type="Texture2D" uid="uid://de2tpgcubddv7" path="res://assets/ui/buttons/buttons_square/11_right_arrow.png" id="8_lgckp"]
-[ext_resource type="Texture2D" uid="uid://bxbxdypqdr2jn" path="res://assets/ui/buttons/buttons_square/11_right_arrow_pick.png" id="9_p13ln"]
+[ext_resource type="PackedScene" uid="uid://bse16ghhh80i6" path="res://src/util/background/Background.tscn" id="2_hgy68"]
+[ext_resource type="Texture2D" uid="uid://b6u12lf84oeuj" path="res://assets/ui/darkpixelrpg/bars/frame_5_95 × 56.png" id="3_1gf2s"]
+[ext_resource type="Texture2D" uid="uid://qocelfqnlsw8" path="res://assets/ui/darkpixelrpg/bars/frame_1_224 × 268.png" id="4_3pgtb"]
+[ext_resource type="Texture2D" uid="uid://dq6a0cc840gqm" path="res://assets/ui/darkpixelrpg/buttons/rect-h/orange/button_orange_1.png" id="5_uk2rt"]
+[ext_resource type="Texture2D" uid="uid://cffcqbikaqr43" path="res://assets/ui/darkpixelrpg/buttons/rect-h/orange/button_orange_1_pressed.png" id="6_jqgfp"]
+[ext_resource type="FontFile" uid="uid://bi1dwkkedk1oh" path="res://assets/fonts/PixelSplitter-Bold.ttf" id="7_0noof"]
+[ext_resource type="Texture2D" uid="uid://byfkwsn4xta4k" path="res://assets/ui/darkpixelrpg/decors/titles/title_main_1.png" id="8_b0jo8"]
+[ext_resource type="Texture2D" uid="uid://pjtvdnyblc7d" path="res://assets/ui/darkpixelrpg/buttons/square/button_arrow_left.png" id="9_woahm"]
+[ext_resource type="Texture2D" uid="uid://dun4llbklmvdj" path="res://assets/ui/darkpixelrpg/buttons/square/button_arrow_left_pressed.png" id="10_i84ij"]
 
 [node name="Hangar" type="Node2D"]
 script = ExtResource("1_uampd")
@@ -26,124 +27,107 @@ anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 2048.0
 
-[node name="Label" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -448.0
-offset_top = 64.0
-offset_right = -32.0
-offset_bottom = 192.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 80
-text = "Hangar"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="HangarHeading" type="TextureRect" parent="Control"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -448.0
-offset_top = 160.0
-offset_bottom = 192.0
-grow_horizontal = 0
-texture = ExtResource("3_8kga1")
-expand_mode = 1
-flip_h = true
-
-[node name="StatsBar" type="TextureRect" parent="Control"]
-visible = false
+[node name="StatsBar" type="NinePatchRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -208.0
-offset_top = -576.0
-offset_right = 304.0
+offset_left = -480.0
+offset_top = -960.0
+offset_right = 480.0
 offset_bottom = -256.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_hjpmn")
-expand_mode = 1
-stretch_mode = 1
+texture = ExtResource("3_1gf2s")
+
+[node name="Playername" type="Label" parent="Control/StatsBar"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 928.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 40
+text = "Playername"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Labels" type="VBoxContainer" parent="Control/StatsBar"]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 96.0
-offset_right = 224.0
-offset_bottom = 288.0
+offset_left = 64.0
+offset_top = 128.0
+offset_right = 512.0
+offset_bottom = 576.0
 alignment = 1
 
 [node name="Level" type="Label" parent="Control/StatsBar/Labels"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Level:"
 
 [node name="Credits" type="Label" parent="Control/StatsBar/Labels"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Credits:"
 
 [node name="HPMax" type="Label" parent="Control/StatsBar/Labels"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "HP Max:"
 
 [node name="DPSAvg" type="Label" parent="Control/StatsBar/Labels"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "DPS Avg:"
 
 [node name="DPSMax" type="Label" parent="Control/StatsBar/Labels"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "DPS Max:"
 
 [node name="Played" type="Label" parent="Control/StatsBar/Labels"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Time played:"
 
 [node name="Values" type="VBoxContainer" parent="Control/StatsBar"]
 layout_mode = 0
-offset_left = 224.0
-offset_top = 96.0
-offset_right = 416.0
-offset_bottom = 288.0
+offset_left = 512.0
+offset_top = 128.0
+offset_right = 928.0
+offset_bottom = 576.0
 alignment = 1
 
 [node name="Level" type="Label" parent="Control/StatsBar/Values"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "15"
 
 [node name="Credits" type="Label" parent="Control/StatsBar/Values"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "185.895"
 
 [node name="HPMax" type="Label" parent="Control/StatsBar/Values"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "100"
 
 [node name="DPSAvg" type="Label" parent="Control/StatsBar/Values"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "2694"
 
 [node name="DPSMax" type="Label" parent="Control/StatsBar/Values"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "5369"
 
 [node name="Played" type="Label" parent="Control/StatsBar/Values"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "1816 min"
-
-[node name="Label" type="Label" parent="Control/StatsBar"]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 480.0
-offset_bottom = 96.0
-text = "Playername"
 
 [node name="HangarBar" type="TextureRect" parent="Control"]
 layout_mode = 1
@@ -153,13 +137,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -512.0
-offset_top = -64.0
+offset_top = -192.0
 offset_right = 512.0
 offset_bottom = 960.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_30xov")
+texture = ExtResource("4_3pgtb")
 expand_mode = 1
+stretch_mode = 5
 
 [node name="InventroyButton" type="TextureButton" parent="Control/HangarBar"]
 layout_mode = 1
@@ -168,21 +153,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -256.0
+offset_left = -288.0
 offset_top = -384.0
-offset_right = 256.0
+offset_right = 288.0
 offset_bottom = -256.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("6_onto0")
-texture_pressed = ExtResource("7_1mktm")
+texture_normal = ExtResource("5_uk2rt")
+texture_pressed = ExtResource("6_jqgfp")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Control/HangarBar/InventroyButton"]
 layout_mode = 0
-offset_right = 512.0
+offset_right = 576.0
 offset_bottom = 128.0
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("7_0noof")
+theme_override_font_sizes/font_size = 48
 text = "Inventory"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -194,48 +180,77 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -256.0
+offset_left = -288.0
 offset_top = -224.0
-offset_right = 256.0
+offset_right = 288.0
 offset_bottom = -96.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("6_onto0")
-texture_pressed = ExtResource("7_1mktm")
+texture_normal = ExtResource("5_uk2rt")
+texture_pressed = ExtResource("6_jqgfp")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Control/HangarBar/AbilitiesButton"]
 layout_mode = 0
-offset_right = 512.0
+offset_right = 576.0
 offset_bottom = 128.0
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("7_0noof")
+theme_override_font_sizes/font_size = 48
 text = "Abilities"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Blacksmith" type="TextureButton" parent="Control/HangarBar"]
+[node name="BlacksmithButton" type="TextureButton" parent="Control/HangarBar"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -256.0
+offset_left = -288.0
 offset_top = -64.0
-offset_right = 256.0
+offset_right = 288.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("6_onto0")
-texture_pressed = ExtResource("7_1mktm")
+texture_normal = ExtResource("5_uk2rt")
+texture_pressed = ExtResource("6_jqgfp")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Control/HangarBar/Blacksmith"]
+[node name="Label" type="Label" parent="Control/HangarBar/BlacksmithButton"]
 layout_mode = 0
-offset_right = 512.0
+offset_right = 576.0
 offset_bottom = 128.0
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("7_0noof")
+theme_override_font_sizes/font_size = 48
 text = "Blacksmith"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuestsButton" type="TextureButton" parent="Control/HangarBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = 96.0
+offset_right = 288.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_uk2rt")
+texture_pressed = ExtResource("6_jqgfp")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/HangarBar/QuestsButton"]
+layout_mode = 0
+offset_right = 576.0
+offset_bottom = 128.0
+theme_override_fonts/font = ExtResource("7_0noof")
+theme_override_font_sizes/font_size = 48
+text = "Quests"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -246,41 +261,85 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = 96.0
-offset_right = 256.0
-offset_bottom = 224.0
+offset_left = -288.0
+offset_top = 256.0
+offset_right = 288.0
+offset_bottom = 384.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("6_onto0")
-texture_pressed = ExtResource("7_1mktm")
+texture_normal = ExtResource("5_uk2rt")
+texture_pressed = ExtResource("6_jqgfp")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Control/HangarBar/ShopButton"]
 layout_mode = 0
-offset_right = 512.0
+offset_right = 576.0
 offset_bottom = 128.0
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("7_0noof")
+theme_override_font_sizes/font_size = 48
 text = "Shop"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BackButton" type="TextureButton" parent="Control/HangarBar"]
+[node name="HangarHeading" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_b0jo8")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="Label" type="Label" parent="Control/HangarHeading"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -32.0
+offset_right = 232.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.133333, 0.133333, 0.133333, 1)
+theme_override_fonts/font = ExtResource("7_0noof")
+theme_override_font_sizes/font_size = 60
+text = "Hangar
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="TextureButton" parent="Control"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -128.0
+offset_left = -192.0
+offset_top = -192.0
+offset_right = -64.0
+offset_bottom = -64.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("8_lgckp")
-texture_pressed = ExtResource("9_p13ln")
+texture_normal = ExtResource("9_woahm")
+texture_pressed = ExtResource("10_i84ij")
 stretch_mode = 0
 
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_AnimationTimer_timeout"]
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_AnimationTimerLeft_timeout"]
 [connection signal="pressed" from="Control/HangarBar/InventroyButton" to="." method="_on_inventroy_button_pressed"]
-[connection signal="pressed" from="Control/HangarBar/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Control/HangarBar/QuestsButton" to="." method="_on_quests_button_pressed"]
+[connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]

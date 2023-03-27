@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://de35e2eiouotl"]
+
+[ext_resource type="Script" path="res://src/scene/quests/Quest.gd" id="1_4fi6r"]
+[ext_resource type="Texture2D" uid="uid://c0hx0x6cee2a4" path="res://assets/ui/darkpixelrpg/tabs/paper.png" id="2_53ouy"]
+[ext_resource type="Texture2D" uid="uid://drwibay3u4o4l" path="res://assets/ui/darkpixelrpg/tabs/paper_pressed.png" id="3_4grmi"]
+[ext_resource type="Texture2D" uid="uid://d0c8pvu0ublrb" path="res://assets/ui/darkpixelrpg/progress/bars/orange/progress_orange.png" id="4_1vw0e"]
+
+[node name="Quest" type="Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(775, 150)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_4fi6r")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(768, 150)
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 150.0
+texture_normal = ExtResource("2_53ouy")
+texture_pressed = ExtResource("3_4grmi")
+stretch_mode = 5
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -399.5
+offset_top = -14.0
+offset_right = 380.5
+grow_horizontal = 2
+grow_vertical = 0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = ExtResource("4_1vw0e")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 40
+text = "Lorem ipsum"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

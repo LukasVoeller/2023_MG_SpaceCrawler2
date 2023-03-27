@@ -1,43 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyx1isadmbctj"]
+[gd_scene load_steps=8 format=3 uid="uid://dyx1isadmbctj"]
 
 [ext_resource type="PackedScene" uid="uid://diplmnwj523y7" path="res://src/util/input/DoubeTap.tscn" id="2"]
 [ext_resource type="Script" path="res://src/game/item/ItemDrag.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://dmr3i82kbv52n" path="res://assets/ui/inventroy/slot_64x64.png" id="3_k0qv4"]
 [ext_resource type="PackedScene" uid="uid://dvegk5s3xp5pp" path="res://src/util/textureloader/TextureLoader.tscn" id="5"]
 [ext_resource type="Script" path="res://src/game/item/_display/ItemDisplay.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://l6c54o6dful" path="res://assets/ui/darkpixelrpg/bars/frame_1_416 × 317.png" id="6_nul6t"]
+[ext_resource type="Texture2D" uid="uid://dbkl56e0lsuwq" path="res://assets/items/swords/sword_1_1.png" id="6_pqxoo"]
 
 [node name="ItemDisplay" type="Node2D"]
 texture_filter = 1
 script = ExtResource("6")
 
 [node name="Texture2D" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(48, 48)
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 168.0
 offset_bottom = 168.0
-pivot_offset = Vector2(48, 48)
 stretch_mode = 5
 script = ExtResource("3")
 
 [node name="Level" type="Label" parent="."]
-offset_left = 8.0
-offset_top = 128.0
-offset_right = 64.0
-offset_bottom = 168.0
-theme_override_font_sizes/font_size = 20
-text = "100"
-horizontal_alignment = 1
-vertical_alignment = 1
+visible = false
+offset_left = 16.0
+offset_top = 120.0
+offset_right = 56.0
+offset_bottom = 160.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "60"
+vertical_alignment = 2
 
 [node name="Upgrade" type="Label" parent="."]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 64.0
-offset_bottom = 48.0
-horizontal_alignment = 1
-vertical_alignment = 1
+visible = false
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 56.0
+offset_bottom = 56.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "+9"
 
 [node name="Background_1" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 176.0
@@ -135,7 +142,7 @@ offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0.196078, 0, 1)
+color = Color(0, 0.294118, 0, 1)
 
 [node name="Background_B" type="ColorRect" parent="Background_2"]
 modulate = Color(1, 1.8, 1, 1)
@@ -152,7 +159,7 @@ offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0.196078, 0, 1)
+color = Color(0, 0.294118, 0, 1)
 
 [node name="Background_C" type="ColorRect" parent="Background_2"]
 modulate = Color(1, 1.8, 1, 1)
@@ -169,7 +176,7 @@ offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0.196078, 0, 1)
+color = Color(0, 0.294118, 0, 1)
 
 [node name="Background_D" type="ColorRect" parent="Background_2"]
 modulate = Color(1, 1.8, 1, 1)
@@ -186,7 +193,7 @@ offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0.196078, 0, 1)
+color = Color(0, 0.294118, 0, 1)
 
 [node name="Background_3" type="Control" parent="."]
 visible = false
@@ -412,10 +419,60 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 0.588235, 0, 1)
 
-[node name="TouchScreenButton" parent="." instance=ExtResource("2")]
-scale = Vector2(2.75, 2.75)
-
 [node name="TextureLoader" parent="." instance=ExtResource("5")]
 visible = false
 
+[node name="TouchScreenButton" parent="." instance=ExtResource("2")]
+scale = Vector2(2.75, 2.75)
+texture_normal = ExtResource("3_k0qv4")
+
+[node name="Popup" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 832.0
+
+[node name="Background" type="NinePatchRect" parent="Popup"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 832.0
+texture = ExtResource("6_nul6t")
+region_rect = Rect2(0, 0, 416, 317)
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 26
+patch_margin_bottom = 27
+
+[node name="Title" type="Label" parent="Popup"]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 384.0
+offset_bottom = 192.0
+theme_override_font_sizes/font_size = 30
+text = "Schwert"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Item" type="TextureRect" parent="Popup"]
+texture_filter = 1
+offset_left = 416.0
+offset_top = 32.0
+offset_right = 1184.0
+offset_bottom = 1056.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_pqxoo")
+stretch_mode = 5
+
+[node name="ItemFrame" type="TextureRect" parent="Popup"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 32.0
+offset_right = 608.0
+offset_bottom = 352.0
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+initial_position = 1
+size = Vector2i(640, 832)
+
 [connection signal="double_tap" from="TouchScreenButton" to="." method="_on_touch_screen_button_double_tap"]
+[connection signal="close_requested" from="PopupPanel" to="." method="_on_popup_panel_close_requested"]

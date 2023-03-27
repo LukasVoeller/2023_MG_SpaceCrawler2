@@ -30,4 +30,3 @@ func get_texture(type, rarity, tex_no):
 		var tex_path = "res://assets/items/armor/feet_" + str(rarity) + "_" + str(tex_no) + ".png"
 		var tex = load(tex_path)
 		return tex
-		

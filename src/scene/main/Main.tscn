@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnbd63rw3o78d"]
+[gd_scene load_steps=7 format=3 uid="uid://cnbd63rw3o78d"]
 
 [ext_resource type="Script" path="res://src/scene/main/Main.gd" id="1_tkvab"]
-[ext_resource type="PackedScene" path="res://src/util/background/Background.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bse16ghhh80i6" path="res://src/util/background/Background.tscn" id="3"]
 [ext_resource type="FontFile" uid="uid://cho30nbiui1uw" path="res://assets/fonts/pixel_font_7.ttf" id="3_menuu"]
-[ext_resource type="Texture2D" uid="uid://ci6mg8ovjriql" path="res://assets/ui/buttons/buttons_rect/1_orange_button_pick.png" id="4"]
-[ext_resource type="Texture2D" uid="uid://diaaemenansya" path="res://assets/ui/buttons/buttons_rect/1_orange_button.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dq6a0cc840gqm" path="res://assets/ui/darkpixelrpg/buttons/rect-h/orange/button_orange_1.png" id="4_jdxb7"]
+[ext_resource type="Texture2D" uid="uid://cffcqbikaqr43" path="res://assets/ui/darkpixelrpg/buttons/rect-h/orange/button_orange_1_pressed.png" id="5_e3vqo"]
+[ext_resource type="FontFile" uid="uid://bi1dwkkedk1oh" path="res://assets/fonts/PixelSplitter-Bold.ttf" id="6_m27ce"]
 
 [node name="Main" type="Node2D" groups=["Persist"]]
 script = ExtResource("1_tkvab")
@@ -49,22 +50,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -256.0
+offset_left = -288.0
 offset_top = -64.0
-offset_right = 256.0
+offset_right = 288.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("5")
-texture_pressed = ExtResource("4")
+texture_normal = ExtResource("4_jdxb7")
+texture_pressed = ExtResource("5_e3vqo")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Control/StartButton"]
 texture_filter = 1
 layout_mode = 0
-offset_right = 512.0
+offset_right = 576.0
 offset_bottom = 128.0
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("6_m27ce")
+theme_override_font_sizes/font_size = 48
 text = "Start"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -77,22 +79,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -256.0
+offset_left = -288.0
 offset_top = 128.0
-offset_right = 256.0
+offset_right = 288.0
 offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("5")
-texture_pressed = ExtResource("4")
+texture_normal = ExtResource("4_jdxb7")
+texture_pressed = ExtResource("5_e3vqo")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Control/ExitButton"]
 texture_filter = 1
 layout_mode = 0
-offset_right = 512.0
+offset_right = 576.0
 offset_bottom = 128.0
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("6_m27ce")
+theme_override_font_sizes/font_size = 48
 text = "Exit"
 horizontal_alignment = 1
 vertical_alignment = 1

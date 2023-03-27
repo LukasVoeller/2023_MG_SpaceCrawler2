@@ -1,32 +1,35 @@
-[gd_scene load_steps=29 format=3 uid="uid://iv4viikpx7gw"]
+[gd_scene load_steps=32 format=3 uid="uid://iv4viikpx7gw"]
 
 [ext_resource type="Script" path="res://src/scene/gameloop/Gameloop.gd" id="1_kjm50"]
 [ext_resource type="PackedScene" uid="uid://dv7miuwh1cmvx" path="res://src/util/spawner/Spawner.tscn" id="2_r0qee"]
-[ext_resource type="PackedScene" path="res://src/util/background/Background.tscn" id="3_l52ca"]
-[ext_resource type="Texture2D" uid="uid://cjoi6xj2qj6f8" path="res://assets/ui/progress_bars/Hp_frame.png" id="4_5gmx2"]
-[ext_resource type="Texture2D" uid="uid://qx0phhmrt5o7" path="res://assets/ui/progress_bars/Hp_orange.png" id="5_o85ps"]
-[ext_resource type="Texture2D" uid="uid://b0vkyuhsl3b0h" path="res://assets/ui/player/HP_mana_bar.png" id="6_yy6cm"]
-[ext_resource type="Texture2D" uid="uid://7n0lve6hd88u" path="res://assets/ui/player/HP_Portrait_frame_bg.png" id="7_yy3mq"]
-[ext_resource type="Texture2D" uid="uid://dvbyoi2r6fh6f" path="res://assets/ui/player/HP_Portrait_frame.png" id="8_i8cvt"]
-[ext_resource type="Texture2D" uid="uid://db6w2m1whxjny" path="res://assets/ui/progress_bars/Hp_red.png" id="9_i1tju"]
-[ext_resource type="Texture2D" uid="uid://dxc78tnndb6p" path="res://assets/ui/progress_bars/Hp_blue.png" id="10_il6f7"]
-[ext_resource type="Texture2D" uid="uid://bnaf30mvo74hu" path="res://assets/ui/bars/bars_center/Dead_bar.png" id="11_qq8s0"]
+[ext_resource type="PackedScene" uid="uid://bse16ghhh80i6" path="res://src/util/background/Background.tscn" id="3_l52ca"]
+[ext_resource type="Texture2D" uid="uid://djscjrlmtyfcf" path="res://assets/ui/darkpixelrpg/progress/frame/frame_197 × 15.png" id="4_srty7"]
+[ext_resource type="Texture2D" uid="uid://bvngv1vekgmfw" path="res://assets/ui/darkpixelrpg/progress/bars/lattice/progress_lattice_1.png" id="5_jxnd6"]
+[ext_resource type="Texture2D" uid="uid://d0c8pvu0ublrb" path="res://assets/ui/darkpixelrpg/progress/bars/orange/progress_orange.png" id="5_wvg4l"]
+[ext_resource type="Texture2D" uid="uid://ca3bxdcyakcut" path="res://assets/ui/darkpixelrpg/bars/frame_1_224 × 213.png" id="6_tog4p"]
+[ext_resource type="FontFile" uid="uid://d4don6vce66s7" path="res://assets/ui/darkpixelrpg/fonts/DarkPixel_PIXEARG.TTF" id="12_165ml"]
 [ext_resource type="FontFile" uid="uid://bi1dwkkedk1oh" path="res://assets/fonts/PixelSplitter-Bold.ttf" id="12_lxkee"]
-[ext_resource type="Texture2D" uid="uid://dbp1kvouk3r04" path="res://assets/icons_game/rpg/11_cross.png" id="13_c43ws"]
-[ext_resource type="Texture2D" uid="uid://c55g2vn0lfkj0" path="res://assets/ui/buttons/buttons_rect/1_gray_button.png" id="14_fplch"]
-[ext_resource type="Texture2D" uid="uid://8g3ncgbkh1m5" path="res://assets/ui/buttons/buttons_rect/1_gray_button_pick.png" id="15_pcgb4"]
-[ext_resource type="Texture2D" uid="uid://dxb4l22qqjlbl" path="res://assets/icons_game/rpg/27_Skull.png" id="16_a417h"]
-[ext_resource type="Texture2D" uid="uid://diaaemenansya" path="res://assets/ui/buttons/buttons_rect/1_orange_button.png" id="17_267f7"]
-[ext_resource type="Texture2D" uid="uid://ci6mg8ovjriql" path="res://assets/ui/buttons/buttons_rect/1_orange_button_pick.png" id="18_ppe1e"]
-[ext_resource type="Texture2D" uid="uid://dd6tkuuds1yti" path="res://assets/ui/ingame/Skill_bar_noColbs_little_cut.png" id="19_5l4ry"]
-[ext_resource type="Texture2D" uid="uid://i6x06ahk6jpk" path="res://assets/icons_game/rpg/70_magic.png" id="20_4usoh"]
-[ext_resource type="Texture2D" uid="uid://wjm36pk422jn" path="res://assets/icons_game/rpg/71_magic.png" id="21_21ehy"]
-[ext_resource type="Texture2D" uid="uid://b57uk6ntytpje" path="res://assets/icons_game/rpg/72_magic.png" id="22_qhfrw"]
-[ext_resource type="Texture2D" uid="uid://b18wdt2qrtdxc" path="res://assets/ui/bars/bars_wide/Popup_window.png" id="23_ybdjl"]
-[ext_resource type="FontFile" uid="uid://cho30nbiui1uw" path="res://assets/fonts/pixel_font_7.ttf" id="24_blfbt"]
-[ext_resource type="Texture2D" uid="uid://d13gogwkfse6l" path="res://assets/ui/bars/bars_small/Dialogue_frame.png" id="25_ad83c"]
-[ext_resource type="Texture2D" uid="uid://de2tpgcubddv7" path="res://assets/ui/buttons/buttons_square/11_right_arrow.png" id="26_2rkud"]
-[ext_resource type="Texture2D" uid="uid://bxbxdypqdr2jn" path="res://assets/ui/buttons/buttons_square/11_right_arrow_pick.png" id="27_dqj67"]
+[ext_resource type="Texture2D" uid="uid://dq6a0cc840gqm" path="res://assets/ui/darkpixelrpg/buttons/rect-h/orange/button_orange_1.png" id="12_vej4d"]
+[ext_resource type="Texture2D" uid="uid://dbp1kvouk3r04" path="res://assets/_unused/icons_game/rpg/11_cross.png" id="13_c43ws"]
+[ext_resource type="Texture2D" uid="uid://cffcqbikaqr43" path="res://assets/ui/darkpixelrpg/buttons/rect-h/orange/button_orange_1_pressed.png" id="13_m4203"]
+[ext_resource type="Texture2D" uid="uid://dxb4l22qqjlbl" path="res://assets/_unused/icons_game/rpg/27_Skull.png" id="16_a417h"]
+[ext_resource type="Texture2D" uid="uid://bl23qqfr2w0n8" path="res://assets/ui/darkpixelrpg/bars/frame_5_253 × 56.png" id="18_im27e"]
+[ext_resource type="Texture2D" uid="uid://bnbsi404hme2n" path="res://assets/ui/darkpixelrpg/skillbar/skillbar_custom_3_noexp.png" id="19_kxcev"]
+[ext_resource type="Texture2D" uid="uid://dlyi1mi7n45pi" path="res://assets/ui/darkpixelrpg/progress/frame/frame_lattice_5.png" id="19_lu8nd"]
+[ext_resource type="Texture2D" uid="uid://g2nykwp861yp" path="res://assets/ui/ads/android-testad-0-admob.png" id="19_pwvep"]
+[ext_resource type="Texture2D" uid="uid://i6x06ahk6jpk" path="res://assets/_unused/icons_game/rpg/70_magic.png" id="20_4usoh"]
+[ext_resource type="Texture2D" uid="uid://pjtvdnyblc7d" path="res://assets/ui/darkpixelrpg/buttons/square/button_arrow_left.png" id="20_wo7fb"]
+[ext_resource type="Texture2D" uid="uid://wjm36pk422jn" path="res://assets/_unused/icons_game/rpg/71_magic.png" id="21_21ehy"]
+[ext_resource type="Texture2D" uid="uid://dun4llbklmvdj" path="res://assets/ui/darkpixelrpg/buttons/square/button_arrow_left_pressed.png" id="21_hva6l"]
+[ext_resource type="Texture2D" uid="uid://b57uk6ntytpje" path="res://assets/_unused/icons_game/rpg/72_magic.png" id="22_qhfrw"]
+[ext_resource type="Texture2D" uid="uid://bqkibi2i8k03t" path="res://assets/ui/darkpixelrpg/orbs/red/orb_red_0.png" id="22_ymfv1"]
+[ext_resource type="Texture2D" uid="uid://d1me0g30b7t12" path="res://assets/ui/darkpixelrpg/buttons/rect-v/button_menu.png" id="25_kx2ey"]
+[ext_resource type="Texture2D" uid="uid://kbfkk56olk6i" path="res://assets/ui/darkpixelrpg/buttons/rect-v/button_menu_pressed.png" id="26_l8c6k"]
+[ext_resource type="Texture2D" uid="uid://cwuo2egraqqyv" path="res://assets/ui/darkpixelrpg/icons/items/69_magic.png" id="26_wu5sj"]
+[ext_resource type="Texture2D" uid="uid://e3posa35vdg0" path="res://assets/ui/darkpixelrpg/buttons/special/button_diamond.png" id="27_hc7mj"]
+[ext_resource type="FontFile" uid="uid://dsit7y8v2i7mb" path="res://assets/ui/darkpixelrpg/fonts/DarkPixel_PixelSplitter.ttf" id="28_jps8n"]
+[ext_resource type="Texture2D" uid="uid://bvwhauycj7fwm" path="res://assets/ui/darkpixelrpg/decors/line/decor_line_arrow_2.png" id="29_amthy"]
+[ext_resource type="Texture2D" uid="uid://br41hohn08a44" path="res://assets/ui/darkpixelrpg/icons/items/32_coin.png" id="30_40to8"]
 
 [sub_resource type="Environment" id="26"]
 background_mode = 4
@@ -49,6 +52,10 @@ position = Vector2(576, 1280)
 
 [node name="PlayedTimer" type="Timer" parent="."]
 
+[node name="LevelUpTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [node name="Control" type="Control" parent="."]
 texture_filter = 1
 layout_mode = 3
@@ -56,24 +63,80 @@ anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 2048.0
 
-[node name="ProgressBar" type="TextureProgressBar" parent="Control"]
+[node name="LevelProgress" type="Control" parent="Control"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 34.0
+offset_left = 31.0
+offset_top = -200.0
+offset_right = 95.0
+offset_bottom = 200.0
+grow_vertical = 2
+
+[node name="Stage1" type="ColorRect" parent="Control/LevelProgress"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 232.0
+offset_right = 65.0
+offset_bottom = 240.0
+
+[node name="Strage2" type="ColorRect" parent="Control/LevelProgress"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 80.0
+offset_right = 65.0
+offset_bottom = 88.0
+
+[node name="ProgressBar" type="TextureProgressBar" parent="Control/LevelProgress"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
 offset_top = 197.0
-offset_right = 231.0
-offset_bottom = 212.0
+offset_right = 200.0
+offset_bottom = 213.0
 grow_vertical = 2
 rotation = 268.606
 scale = Vector2(2, 4)
-value = 50.0
-texture_under = ExtResource("4_5gmx2")
-texture_progress = ExtResource("5_o85ps")
-texture_progress_offset = Vector2(3, 3)
+value = 100.0
+nine_patch_stretch = true
+texture_over = ExtResource("4_srty7")
+texture_progress = ExtResource("5_jxnd6")
+
+[node name="Min" type="Label" parent="Control/LevelProgress"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = 192.0
+offset_right = 96.0
+offset_bottom = 256.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Max" type="Label" parent="Control/LevelProgress"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -256.0
+offset_right = 96.0
+offset_bottom = -192.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Player" type="Control" parent="Control"]
+visible = false
 anchors_preset = 0
 offset_left = 32.0
 offset_top = 64.0
@@ -91,21 +154,18 @@ layout_mode = 0
 offset_left = 60.8
 offset_right = 409.8
 offset_bottom = 90.0
-texture = ExtResource("6_yy6cm")
 stretch_mode = 5
 
 [node name="RingBackground" type="TextureRect" parent="Control/Player/PlayerBar"]
 layout_mode = 0
 offset_right = 90.0
 offset_bottom = 90.0
-texture = ExtResource("7_yy3mq")
 stretch_mode = 5
 
 [node name="Ring" type="TextureRect" parent="Control/Player/PlayerBar"]
 layout_mode = 0
 offset_right = 90.0
 offset_bottom = 90.0
-texture = ExtResource("8_i8cvt")
 stretch_mode = 5
 
 [node name="HpBar" type="TextureProgressBar" parent="Control/Player"]
@@ -116,8 +176,6 @@ offset_right = 437.0
 offset_bottom = 103.0
 scale = Vector2(3.4, 3.4)
 value = 100.0
-texture_under = ExtResource("4_5gmx2")
-texture_progress = ExtResource("9_i1tju")
 texture_progress_offset = Vector2(3, 3)
 
 [node name="HpBarText" type="Label" parent="Control/Player"]
@@ -139,8 +197,6 @@ offset_right = 446.0
 offset_bottom = 173.0
 scale = Vector2(2.9, 3)
 value = 50.0
-texture_under = ExtResource("4_5gmx2")
-texture_progress = ExtResource("10_il6f7")
 texture_progress_offset = Vector2(3, 3)
 
 [node name="LevelText" type="Label" parent="Control/Player"]
@@ -193,7 +249,7 @@ offset_right = 320.0
 offset_bottom = 320.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("11_qq8s0")
+texture = ExtResource("6_tog4p")
 stretch_mode = 5
 
 [node name="Heading" type="Label" parent="Control/LevelCleared"]
@@ -241,8 +297,8 @@ offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-texture_normal = ExtResource("14_fplch")
-texture_pressed = ExtResource("15_pcgb4")
+texture_normal = ExtResource("12_vej4d")
+texture_pressed = ExtResource("13_m4203")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Control/LevelCleared/LevelClearedMenuButton"]
@@ -281,7 +337,7 @@ offset_right = 320.0
 offset_bottom = 320.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("11_qq8s0")
+texture = ExtResource("6_tog4p")
 stretch_mode = 5
 
 [node name="Heading" type="Label" parent="Control/LevelFailed"]
@@ -331,8 +387,8 @@ offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-texture_normal = ExtResource("14_fplch")
-texture_pressed = ExtResource("15_pcgb4")
+texture_normal = ExtResource("12_vej4d")
+texture_pressed = ExtResource("13_m4203")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Control/LevelFailed/LevelClearedFailedButton"]
@@ -372,7 +428,7 @@ offset_bottom = 107.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("11_qq8s0")
+texture = ExtResource("6_tog4p")
 stretch_mode = 5
 
 [node name="Heading" type="Label" parent="Control/Pause"]
@@ -404,8 +460,8 @@ offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-texture_normal = ExtResource("17_267f7")
-texture_pressed = ExtResource("18_ppe1e")
+texture_normal = ExtResource("12_vej4d")
+texture_pressed = ExtResource("13_m4203")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Control/Pause/PauseResumeButton"]
@@ -430,8 +486,8 @@ offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-texture_normal = ExtResource("17_267f7")
-texture_pressed = ExtResource("18_ppe1e")
+texture_normal = ExtResource("12_vej4d")
+texture_pressed = ExtResource("13_m4203")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Control/Pause/PauseMenuButton"]
@@ -442,146 +498,24 @@ text = "Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Abilities" type="TextureRect" parent="Control"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -704.0
-offset_top = -448.0
-offset_right = -351.0
-offset_bottom = -320.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(2, 2)
-texture = ExtResource("19_5l4ry")
-stretch_mode = 5
-
-[node name="Ability_1" type="TextureButton" parent="Control/Abilities"]
-layout_mode = 0
-offset_left = 72.0
-offset_top = 32.0
-offset_right = 136.0
-offset_bottom = 96.0
-texture_normal = ExtResource("20_4usoh")
-stretch_mode = 5
-
-[node name="Ability_2" type="TextureButton" parent="Control/Abilities"]
-layout_mode = 0
-offset_left = 172.0
-offset_top = 32.0
-offset_right = 236.0
-offset_bottom = 96.0
-texture_normal = ExtResource("21_21ehy")
-stretch_mode = 5
-
-[node name="Ability_3" type="TextureButton" parent="Control/Abilities"]
-layout_mode = 0
-offset_left = 272.0
-offset_top = 32.0
-offset_right = 336.0
-offset_bottom = 96.0
-texture_normal = ExtResource("22_qhfrw")
-stretch_mode = 5
-
 [node name="DPSMeter" type="Control" parent="Control"]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -448.0
-offset_right = 320.0
-offset_bottom = -193.0
-grow_vertical = 0
-
-[node name="Background" type="TextureRect" parent="Control/DPSMeter"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = -192.0
-offset_top = -175.0
-offset_right = 106.0
-offset_bottom = -111.0
-grow_vertical = 0
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("23_ybdjl")
-stretch_mode = 5
-flip_h = true
-
-[node name="DPSLabel" type="Label" parent="Control/DPSMeter"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 8.0
-offset_top = -21.5
-offset_right = 88.0
-offset_bottom = 26.5
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("24_blfbt")
-theme_override_font_sizes/font_size = 40
-text = "DPS:"
-vertical_alignment = 1
-
-[node name="DPS" type="Label" parent="Control/DPSMeter"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 96.0
-offset_top = -21.5
-offset_right = 257.0
-offset_bottom = 26.5
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("24_blfbt")
-theme_override_font_sizes/font_size = 40
-text = "0"
-vertical_alignment = 1
-
-[node name="DPSAvgLabel" type="Label" parent="Control/DPSMeter"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 8.0
-offset_top = 48.5
-offset_right = 80.0
-offset_bottom = 88.5
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("24_blfbt")
-theme_override_font_sizes/font_size = 30
-text = "Avg:"
-vertical_alignment = 1
-
-[node name="DPSAvg" type="Label" parent="Control/DPSMeter"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 96.0
-offset_top = 48.5
-offset_right = 256.0
-offset_bottom = 88.5
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("24_blfbt")
-theme_override_font_sizes/font_size = 30
-text = "0"
-vertical_alignment = 1
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 160.0
+offset_right = 336.0
+offset_bottom = 320.0
 
 [node name="DPSMaxLabel" type="Label" parent="Control/DPSMeter"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 8.0
-offset_top = -87.5
-offset_right = 80.0
-offset_bottom = -47.5
+offset_top = 32.0
+offset_right = 112.0
+offset_bottom = 80.0
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("24_blfbt")
+theme_override_fonts/font = ExtResource("12_165ml")
 theme_override_font_sizes/font_size = 30
 text = "Max:"
 vertical_alignment = 1
@@ -591,14 +525,105 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 96.0
-offset_top = -87.5
-offset_right = 256.0
-offset_bottom = -47.5
+offset_left = 128.0
+offset_top = 32.0
+offset_right = 304.0
+offset_bottom = 80.0
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("24_blfbt")
+theme_override_fonts/font = ExtResource("12_165ml")
 theme_override_font_sizes/font_size = 30
 text = "0"
+vertical_alignment = 1
+
+[node name="DPSLabel" type="Label" parent="Control/DPSMeter"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -80.0
+offset_right = 112.0
+offset_bottom = -16.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("12_165ml")
+theme_override_font_sizes/font_size = 40
+text = "DPS:"
+vertical_alignment = 1
+
+[node name="DPS" type="Label" parent="Control/DPSMeter"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 128.0
+offset_top = -80.0
+offset_right = 304.0
+offset_bottom = -16.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("12_165ml")
+theme_override_font_sizes/font_size = 40
+text = "0"
+vertical_alignment = 1
+
+[node name="DPSAvgLabel" type="Label" parent="Control/DPSMeter"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -16.0
+offset_right = 112.0
+offset_bottom = 32.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("12_165ml")
+theme_override_font_sizes/font_size = 30
+text = "Avg:"
+vertical_alignment = 1
+
+[node name="DPSAvg" type="Label" parent="Control/DPSMeter"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 128.0
+offset_top = -16.0
+offset_right = 304.0
+offset_bottom = 32.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("12_165ml")
+theme_override_font_sizes/font_size = 30
+text = "0"
+vertical_alignment = 1
+
+[node name="Gold" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -448.0
+offset_top = 128.0
+offset_bottom = 256.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control/Gold"]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 32.0
+offset_right = 417.0
+offset_bottom = 96.0
+texture = ExtResource("30_40to8")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/Gold"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -448.0
+offset_right = -96.0
+offset_bottom = 128.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 32
+text = "100.000"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Footer" type="TextureRect" parent="Control"]
@@ -614,21 +639,26 @@ offset_bottom = -96.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
-texture = ExtResource("25_ad83c")
+texture = ExtResource("18_im27e")
 
-[node name="BannerAd" type="ColorRect" parent="Control/Footer"]
+[node name="BannerAd" type="TextureRect" parent="Control/Footer"]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 64.0
-offset_top = -28.0
-offset_right = 448.0
-offset_bottom = 28.0
-grow_vertical = 2
-color = Color(0.34902, 0.34902, 0.34902, 1)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -75.0
+offset_right = 160.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("19_pwvep")
+expand_mode = 1
 
 [node name="BannerAdText" type="Label" parent="Control/Footer/BannerAd"]
+visible = false
 layout_mode = 0
 offset_right = 384.0
 offset_bottom = 56.0
@@ -649,9 +679,222 @@ offset_right = -16.0
 offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("26_2rkud")
-texture_pressed = ExtResource("27_dqj67")
+texture_normal = ExtResource("20_wo7fb")
+texture_pressed = ExtResource("21_hva6l")
 stretch_mode = 0
+
+[node name="SkillBar" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -576.0
+offset_right = 576.0
+offset_bottom = -192.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HPBar" type="TextureProgressBar" parent="Control/SkillBar"]
+visible = false
+layout_mode = 0
+offset_left = 40.0
+offset_top = 24.0
+offset_right = 293.0
+offset_bottom = 284.0
+scale = Vector2(1.2, 1.2)
+value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("22_ymfv1")
+
+[node name="HPBarText" type="Label" parent="Control/SkillBar/HPBar"]
+layout_mode = 0
+offset_right = 211.0
+offset_bottom = 217.0
+scale = Vector2(1.2, 1.2)
+theme_override_font_sizes/font_size = 25
+text = "100 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SkillBar" type="TextureRect" parent="Control/SkillBar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -832.0
+offset_top = -429.0
+offset_right = 576.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("19_kxcev")
+stretch_mode = 5
+
+[node name="ExpBar" type="TextureProgressBar" parent="Control/SkillBar"]
+visible = false
+layout_mode = 0
+offset_left = 402.0
+offset_top = 133.0
+offset_right = 599.0
+offset_bottom = 148.0
+scale = Vector2(3.85, 2.5)
+value = 50.0
+nine_patch_stretch = true
+texture_over = ExtResource("19_lu8nd")
+texture_progress = ExtResource("5_wvg4l")
+
+[node name="Exp" type="Label" parent="Control/SkillBar"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -174.0
+offset_top = -251.0
+offset_right = 584.0
+offset_bottom = -213.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "10 / 10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="TextureRect" parent="Control/SkillBar"]
+visible = false
+layout_mode = 0
+offset_left = 346.0
+offset_top = 94.0
+offset_right = 458.0
+offset_bottom = 206.0
+texture = ExtResource("27_hc7mj")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/SkillBar/Level"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 114.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 32
+text = "60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButton" type="TextureButton" parent="Control/SkillBar"]
+visible = false
+layout_mode = 0
+offset_left = 358.0
+offset_top = 197.0
+offset_right = 446.0
+offset_bottom = 349.0
+texture_normal = ExtResource("25_kx2ey")
+texture_pressed = ExtResource("26_l8c6k")
+stretch_mode = 5
+
+[node name="Abilities" type="TextureRect" parent="Control/SkillBar"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -704.0
+offset_top = -192.0
+offset_right = -351.0
+offset_bottom = -108.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2, 2)
+stretch_mode = 5
+
+[node name="Ability_1" type="TextureButton" parent="Control/SkillBar/Abilities"]
+layout_mode = 0
+offset_left = 17.5
+offset_top = 8.0
+offset_right = 81.5
+offset_bottom = 72.0
+texture_normal = ExtResource("20_4usoh")
+stretch_mode = 5
+
+[node name="Ability_2" type="TextureButton" parent="Control/SkillBar/Abilities"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 8.0
+offset_right = 168.0
+offset_bottom = 72.0
+texture_normal = ExtResource("21_21ehy")
+stretch_mode = 5
+
+[node name="Ability_3" type="TextureButton" parent="Control/SkillBar/Abilities"]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 8.0
+offset_right = 340.0
+offset_bottom = 72.0
+texture_normal = ExtResource("22_qhfrw")
+stretch_mode = 5
+
+[node name="Ability_4" type="TextureButton" parent="Control/SkillBar/Abilities"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 8.0
+offset_right = 254.0
+offset_bottom = 72.0
+texture_normal = ExtResource("26_wu5sj")
+stretch_mode = 5
+
+[node name="LevelUp" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_top = 384.0
+offset_right = 576.0
+offset_bottom = 576.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("28_jps8n")
+theme_override_font_sizes/font_size = 96
+text = "Level up!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/LevelUp"]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 128.0
+offset_right = 896.0
+offset_bottom = 192.0
+texture = ExtResource("29_amthy")
+stretch_mode = 5
+
+[node name="ExpText" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 130.0
+offset_top = -488.0
+offset_right = 282.0
+offset_bottom = -448.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("26")
@@ -660,11 +903,13 @@ environment = SubResource("26")
 [connection signal="timeout" from="DPSTimer" to="." method="_on_DPSTimer_timeout"]
 [connection signal="timeout" from="UpdateSpawnrateTimer" to="." method="_on_UpdateSpawnrateTimer_timeout"]
 [connection signal="timeout" from="PlayedTimer" to="." method="_on_PlayedTimer_timeout"]
+[connection signal="timeout" from="LevelUpTimer" to="." method="_on_level_up_timer_timeout"]
 [connection signal="pressed" from="Control/LevelCleared/LevelClearedMenuButton" to="." method="_on_level_cleared_menu_button_pressed"]
 [connection signal="pressed" from="Control/LevelFailed/LevelClearedFailedButton" to="." method="_on_level_cleared_failed_button_pressed"]
 [connection signal="pressed" from="Control/Pause/PauseResumeButton" to="." method="_on_pause_resume_button_pressed"]
 [connection signal="pressed" from="Control/Pause/PauseMenuButton" to="." method="_on_pause_menu_button_pressed"]
-[connection signal="pressed" from="Control/Abilities/Ability_1" to="." method="_on_Ability_1_pressed"]
-[connection signal="pressed" from="Control/Abilities/Ability_2" to="." method="_on_Ability_1_pressed"]
-[connection signal="pressed" from="Control/Abilities/Ability_3" to="." method="_on_Ability_1_pressed"]
 [connection signal="pressed" from="Control/Footer/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Control/SkillBar/Abilities/Ability_1" to="." method="_on_Ability_1_pressed"]
+[connection signal="pressed" from="Control/SkillBar/Abilities/Ability_2" to="." method="_on_Ability_1_pressed"]
+[connection signal="pressed" from="Control/SkillBar/Abilities/Ability_3" to="." method="_on_Ability_1_pressed"]
+[connection signal="pressed" from="Control/SkillBar/Abilities/Ability_4" to="." method="_on_Ability_1_pressed"]

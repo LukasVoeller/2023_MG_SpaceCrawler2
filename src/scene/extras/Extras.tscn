@@ -1,6 +1,5 @@
 [gd_scene load_steps=52 format=3 uid="uid://ofshufq347fb"]
 
-[ext_resource type="Texture2D" uid="uid://de2tpgcubddv7" path="res://assets/ui/buttons/buttons_square/11_right_arrow.png" id="1"]
 [ext_resource type="Script" path="res://src/scene/extras/Extras.gd" id="1_4cv60"]
 [ext_resource type="Texture2D" uid="uid://g2mqt37cwxlk" path="res://assets/spaceships/mains/planes_07_A.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://cqykfi53q5iv8" path="res://assets/spaceships/mains/planes_02_A 1.png" id="3"]
@@ -10,7 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://d3jwxpn11slkn" path="res://assets/spaceships/mains/planes_04_A.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://cm6q3vtyt6soy" path="res://assets/spaceships/mains/planes_06_A.png" id="8"]
 [ext_resource type="Texture2D" uid="uid://bfd8a2ysg076c" path="res://assets/spaceships/mains/planes_03_A 1.png" id="10"]
-[ext_resource type="Texture2D" uid="uid://bxbxdypqdr2jn" path="res://assets/ui/buttons/buttons_square/11_right_arrow_pick.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://ckag2bqi51gjg" path="res://assets/ui/darkpixelrpg/buttons/square/button_arrow_right.png" id="10_daxvk"]
+[ext_resource type="Texture2D" uid="uid://dhhe7pywud1kx" path="res://assets/ui/darkpixelrpg/buttons/square/button_arrow_right_pressed.png" id="11_mdjg5"]
 
 [sub_resource type="AtlasTexture" id="2"]
 atlas = ExtResource("5")
@@ -371,8 +371,8 @@ offset_right = -64.0
 offset_bottom = -64.0
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("1")
-texture_pressed = ExtResource("11")
+texture_normal = ExtResource("10_daxvk")
+texture_pressed = ExtResource("11_mdjg5")
 stretch_mode = 5
 
 [connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]

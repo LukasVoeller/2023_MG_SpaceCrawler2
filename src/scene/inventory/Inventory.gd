@@ -4,12 +4,12 @@ const ItemDisplay = preload("res://src/game/item/_display/ItemDisplay.tscn")
 const Slot = preload("res://src/scene/inventory/Slot.tscn")
 const SlotPlaceholder = preload("res://src/scene/inventory/SlotPlaceholder.tscn")
 
-const weapon_tex = preload("res://assets/ui/icons/icons_printed/Icon_Eq_Weapon.png")
-const shield_tex = preload("res://assets/ui/icons/icons_printed/Icon_Eq_Shield.png")
-const gloves_tex = preload("res://assets/ui/icons/icons_printed/Icon_Eq_Glowes.png")
-const helmet_tex = preload("res://assets/ui/icons/icons_printed/Icon_Eq_Head.png")
-const chest_tex = preload("res://assets/ui/icons/icons_printed/Icon_Eq_Chest.png")
-const boots_tex = preload("res://assets/ui/icons/icons_printed/Icon_Eq_boots.png")
+const weapon_tex = preload("res://assets/ui/darkpixelrpg/icons/inventory/icon_weapon.png")
+const shield_tex = preload("res://assets/ui/darkpixelrpg/icons/inventory/icon_shield.png")
+const gloves_tex = preload("res://assets/ui/darkpixelrpg/icons/inventory/icon_hands.png")
+const helmet_tex = preload("res://assets/ui/darkpixelrpg/icons/inventory/icon_head.png")
+const chest_tex = preload("res://assets/ui/darkpixelrpg/icons/inventory/icon_chest.png")
+const boots_tex = preload("res://assets/ui/darkpixelrpg/icons/inventory/icon_feet.png")
 
 var slots_equ = ["weapon", "shield", "hands", "head", "chest", "feet"]
 
@@ -49,7 +49,7 @@ func init_inventory():
 				slot_i.slot_name = "hands"
 				slot_i.texture = gloves_tex
 			
-			$Control/Player/BackgroundRight/GridContainerRight.add_child(slot_i)
+			$Control/Player/Background/GridContainerRight.add_child(slot_i)
 		else:
 			var slot_i = Slot.instantiate()
 			
@@ -63,7 +63,7 @@ func init_inventory():
 				slot_i.slot_name = "feet"
 				slot_i.texture = boots_tex
 			
-			$Control/Player/BackgroundRight/GridContainerLeft.add_child(slot_i)
+			$Control/Player/Background/GridContainerLeft.add_child(slot_i)
 		
 	# Inventory
 	if inventory.size() < 32:
@@ -130,33 +130,33 @@ func fill_inventory():
 		item_display.position = Vector2(8, 8)
 
 		if equipped[n].equipped == "weapon":
-			$Control/Player/BackgroundRight/GridContainerRight.get_child(0).add_child(item_display)
+			$Control/Player/Background/GridContainerRight.get_child(0).add_child(item_display)
 		if equipped[n].equipped == "shield":
-			$Control/Player/BackgroundRight/GridContainerRight.get_child(1).add_child(item_display)
+			$Control/Player/Background/GridContainerRight.get_child(1).add_child(item_display)
 		if equipped[n].equipped == "hands":
-			$Control/Player/BackgroundRight/GridContainerRight.get_child(2).add_child(item_display)
+			$Control/Player/Background/GridContainerRight.get_child(2).add_child(item_display)
 		if equipped[n].equipped == "head":
-			$Control/Player/BackgroundRight/GridContainerLeft.get_child(0).add_child(item_display)
+			$Control/Player/Background/GridContainerLeft.get_child(0).add_child(item_display)
 		if equipped[n].equipped == "chest":
-			$Control/Player/BackgroundRight/GridContainerLeft.get_child(1).add_child(item_display)
+			$Control/Player/Background/GridContainerLeft.get_child(1).add_child(item_display)
 		if equipped[n].equipped == "feet":
-			$Control/Player/BackgroundRight/GridContainerLeft.get_child(2).add_child(item_display)
+			$Control/Player/Background/GridContainerLeft.get_child(2).add_child(item_display)
 	
 	# Fill empty Equipmentslots right
-	for i in $Control/Player/BackgroundRight/GridContainerRight.get_child_count():
-		var node = $Control/Player/BackgroundRight/GridContainerRight.get_child(i).get_child(0)
+	for i in $Control/Player/Background/GridContainerRight.get_child_count():
+		var node = $Control/Player/Background/GridContainerRight.get_child(i).get_child(0)
 		if !node:
 			slot_placeholder = SlotPlaceholder.instantiate()
 			slot_placeholder.position = Vector2(8, 8)
-			$Control/Player/BackgroundRight/GridContainerRight.get_child(i).add_child(slot_placeholder)
+			$Control/Player/Background/GridContainerRight.get_child(i).add_child(slot_placeholder)
 	
 	# Fill empty Equipmentslots left
-	for i in $Control/Player/BackgroundRight/GridContainerLeft.get_child_count():
-		var node = $Control/Player/BackgroundRight/GridContainerLeft.get_child(i).get_child(0)
+	for i in $Control/Player/Background/GridContainerLeft.get_child_count():
+		var node = $Control/Player/Background/GridContainerLeft.get_child(i).get_child(0)
 		if !node:
 			slot_placeholder = SlotPlaceholder.instantiate()
 			slot_placeholder.position = Vector2(8, 8)
-			$Control/Player/BackgroundRight/GridContainerLeft.get_child(i).add_child(slot_placeholder)
+			$Control/Player/Background/GridContainerLeft.get_child(i).add_child(slot_placeholder)
 	
 	# Inventory
 	for n in $Control/Inventory/ScrollContainer/GridContainer.get_child_count():
@@ -189,13 +189,13 @@ func save_inventroy():
 	inventory = []
 	
 	# Equipped
-	for i in $Control/Player/BackgroundRight/GridContainerRight.get_child_count():
-		var node = $Control/Player/BackgroundRight/GridContainerRight.get_child(i).get_child(0)
+	for i in $Control/Player/Background/GridContainerRight.get_child_count():
+		var node = $Control/Player/Background/GridContainerRight.get_child(i).get_child(0)
 		if node.get_class() == "Node2D":
 			inventory.append(JSON.new().stringify(node.get_json()))
 			
-	for i in $Control/Player/BackgroundRight/GridContainerLeft.get_child_count():
-		var node = $Control/Player/BackgroundRight/GridContainerLeft.get_child(i).get_child(0)
+	for i in $Control/Player/Background/GridContainerLeft.get_child_count():
+		var node = $Control/Player/Background/GridContainerLeft.get_child(i).get_child(0)
 		if node.get_class() == "Node2D":
 			inventory.append(JSON.new().stringify(node.get_json()))
 	
@@ -246,3 +246,7 @@ func _on_hide_stats_button_pressed():
 	$Control/StatsSheet.hide()
 	$Control/Player/ShowStatsButton.show()
 	$Control/Player/HideStatsButton.hide()
+
+
+func _on_sort_pressed():
+	pass

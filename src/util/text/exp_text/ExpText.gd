@@ -1,27 +1,15 @@
-extends Marker2D
+extends Label
 
-@onready var label = get_node("Label")
-@onready var tween = get_node("Tween")
-var text = 0
-var velocity = Vector2(0, 0)
-var parent_rotation 
-var pos_to
+var rng = RandomNumberGenerator.new()
+var rand_vertical_offset
+var rand_horizontal_offset
 
 func _ready():
-	label.set_text("+" + str(text) + " EXP")
-	set_rotation(0)
-	
-	randomize()
-	velocity = Vector2(500, 500)
-	
-	tween.interpolate_property(self, "position", Vector2(0, 0), Vector2(0, 100), 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	tween.start()
+	pass
 
-func _on_Tween_tween_all_completed():
-	self.queue_free()
 
-func _process(delta):
-	position -= velocity * delta
-	#set_rotation(0)
-	#parent_rotation = get_parent().rotation
-	#set_rotation(-parent_rotation)
+func display():
+	z_index = 10
+	var tween = get_tree().create_tween()
+	tween.parallel().tween_property(self, "position", Vector2(600, 1600), 1)
+	tween.tween_callback(self.queue_free)

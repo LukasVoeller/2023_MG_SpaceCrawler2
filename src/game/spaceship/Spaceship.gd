@@ -10,7 +10,7 @@ var device_width
 var device_height
 
 var level = 1
-var exp_max = 100
+var exp_max = 19
 var exp_current = 0
 var hp_max = Global.spaceship_hp_max
 var hp_current = hp_max
@@ -21,7 +21,6 @@ var is_dragging = false
 var movement_enabled = true
 
 var weapon
-
 
 var input_is_pressed = false
 var input_is_pressed_and_dragging = false
@@ -91,9 +90,13 @@ func play_spaceship_explosion_animation():
 func level_up():
 	print("Level up!")
 	level += 1
-	exp_max *= 1.5
+	exp_max = next_level(level + 1)
 	exp_current = 0
 	hp_current = Global.spaceship_hp_max
+
+
+func next_level(level):
+	return round( (( 285 * level ) * pow(level, 2) - ( 285 * level ) * level) / 60 )
 
 
 # TODO: Optimize
@@ -178,23 +181,7 @@ func _on_Player_body_entered(body):
 			emit_signal("hit")
 	
 	elif body is Powerup:
-		if body.type == 1:
-			if $Weapon.projectiles < 5:
-				$Weapon.projectiles += 1
-				body.use()
-			else:
-				body.use()
-		elif body.type == 2:
-			if $WeaponTimer.wait_time > 0.1:
-				$WeaponTimer.wait_time -= $WeaponTimer.wait_time * 0.10
-				$WeaponBoostTimer.start()
-				body.use()
-			else:
-				body.use()
-		elif body.type == 3:
-			$Weapon.damage_base += $Weapon.damage_base * 0.10
-			body.use()
-		elif body.type == 4:
+		if body.type == "hp_lesser":
 			var hp_to_add = hp_max * 0.25
 			
 			if (hp_current + hp_to_add) < hp_max:
@@ -205,7 +192,30 @@ func _on_Player_body_entered(body):
 				emit_signal("hp_changed")
 				
 			body.use()
-		elif body.type == 4:
+		if body.type == "projectile_lesser":
+			if $Weapon.projectiles < 5:
+				$Weapon.projectiles += 1
+				body.use()
+			else:
+				body.use()
+		if body.type == "atkspeed_lesser":
+			if $WeaponBoostTimer.is_stopped():				
+				$WeaponTimer.wait_time = $WeaponTimer.wait_time * 0.75
+				$WeaponBoostTimer.start()
+				body.use()
+			else:
+				body.use()
+		if body.type == "atkspeed_greater":
+			if $WeaponBoostTimer.is_stopped():				
+				$WeaponTimer.wait_time = $WeaponTimer.wait_time * 0.5
+				$WeaponBoostTimer.start()
+				body.use()
+			else:
+				body.use()
+		if body.type == "atkdmg_lesser":
+			$Weapon.damage_base += $Weapon.damage_base * 0.10
+			body.use()
+		if body.type == "critdmg_lesser":
 			pass
 			
 	elif body is ItemWeapon or body is ItemShield or body is ItemHands or body is ItemHead or body is ItemChest or body is ItemFeet:
@@ -234,11 +244,19 @@ func _on_Spaceship_tree_exited():
 	print("Spaceship freed")
 
 
-func _on_WeaponBoostTimer_timeout():
-	$WeaponTimer.wait_time = weapon.attack_speed
-
-
 func _on_WeaponTimer_timeout():
 	if not game_paused:
 		shoot()
 
+
+func _on_weapon_boost_timer_timeout():
+	$WeaponTimer.wait_time = weapon.attack_speed
+	
+	
+# Booster
+#Global.star_size_min = 0.5
+#Global.star_size_max = 3
+#Global.star_speed_min = 4000
+#Global.star_speed_max = 6000
+#Global.asteroid_velocity_y_min = 
+#Global.asteroid_velocity_y_max = 500

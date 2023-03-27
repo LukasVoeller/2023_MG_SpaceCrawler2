@@ -2,6 +2,7 @@ extends Node2D
 
 class_name Player
 
+var player_name
 var credits = 0
 var max_dps = 0
 var inventory = []

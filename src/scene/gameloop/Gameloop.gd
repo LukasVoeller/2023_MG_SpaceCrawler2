@@ -10,6 +10,7 @@ const ItemHands = preload("res://src/game/item/hands/ItemHands.tscn")
 const ItemHead = preload("res://src/game/item/head/ItemHead.tscn")
 const ItemChest = preload("res://src/game/item/chest/ItemChest.tscn")
 const ItemFeet = preload("res://src/game/item/feet/ItemFeet.tscn")
+const ExpText = preload("res://src/util/text/exp_text/ExpText.tscn")
 
 
 var rng = RandomNumberGenerator.new()
@@ -54,7 +55,7 @@ func _ready():
 		load_game()
 		connect_listeners()
 		game_start()
-		$Control/Player/ExpBar.value = $Spaceship.exp_current
+		$Control/SkillBar/ExpBar.value = $Spaceship.exp_current
 
 
 func connect_listeners():
@@ -69,15 +70,19 @@ func init_ui():
 	$Spawner.position.y -= 1425
 	$Spawner.position.x -= 25
 	
-	$Control/Player/LevelText.text = str($Spaceship.level)
-	#$Control/LevelCreditsDPS.text = "C: " + dot_seperate($Player.credits)
+	$Control/SkillBar/Level/Label.text = str($Spaceship.level)
+	$Control/Gold/Label.text = dot_seperate($Player.credits)
 	#$Control/DPSProgress/DPSText.text = str(Global.damage_dealt_per_second_average)
-	$Control/Player/HpBarText.text = (str($Spaceship.hp_current) + " / " + str(Global.spaceship_hp_max))
-	$Control/Player/HpBar.max_value = Global.spaceship_hp_max
-	$Control/Player/HpBar.value = $Spaceship.hp_current
-	$Control/Player/ExpBar.max_value = $Spaceship.exp_max
-	$Control/ProgressBar.value = asteroid_counter
-	$Control/ProgressBar.max_value = asteroid_clear_cap
+	$Control/SkillBar/HPBar/HPBarText.text = (str($Spaceship.hp_current) + " / " + str(Global.spaceship_hp_max))
+	$Control/SkillBar/HPBar.max_value = Global.spaceship_hp_max
+	$Control/SkillBar/HPBar.value = $Spaceship.hp_current
+	$Control/SkillBar/ExpBar.max_value = $Spaceship.exp_max
+	$Control/LevelProgress/ProgressBar.value = asteroid_counter
+	$Control/LevelProgress/Min.text = str(asteroid_counter)
+	$Control/LevelProgress/ProgressBar.max_value = asteroid_clear_cap
+	$Control/LevelProgress/Max.text = str(asteroid_clear_cap)
+	$Control/SkillBar/ExpBar.value = $Spaceship.exp_current
+	$Control/SkillBar/Exp.text = str($Spaceship.exp_current) + " / " + str($Spaceship.exp_max)
 	#$Control/YouDead.hide()
 
 
@@ -99,8 +104,8 @@ func scale_asteroid(asteroid, scale):
 
 
 func _on_Spaceship_hp_changed():
-	$Control/Player/HpBarText.text = (str($Spaceship.hp_current) + " / " + str(Global.spaceship_hp_max))
-	$Control/Player/HpBar.value = $Spaceship.hp_current
+	$Control/SkillBar/HPBar/HPBarText.text = (str($Spaceship.hp_current) + " / " + str(Global.spaceship_hp_max))
+	$Control/SkillBar/HPBar.value = $Spaceship.hp_current
 
 
 func _on_Spaceship_hit():
@@ -110,48 +115,110 @@ func _on_Spaceship_hit():
 func _on_Asteroid_dead_by_shot(asteroid):
 	asteroid_counter += 1
 	
-	#print("HP: ", $Spaceship.hp_current, " Max HP: ", $Control/Player/ExpBar.max_value)
-	#print("Asteroidcount: ", asteroid_counter, " Spawner Timer: ", $Spawner/AsteroidTimer.wait_time)
-	print("Asteroid dead by shot")
-	
 	var item_drop_chance = rng.randi_range(Global.item_chance_min, Global.item_chance_max)
-	if item_drop_chance == 1 && !asteroid.spawned_item:
+	if item_drop_chance <= 10 && !asteroid.spawned_item:
 		if asteroid.get_global_transform_with_canvas()[2].y > 400:
 			#if asteroid.get_global_transform_with_canvas()[2].x > (screen_size.x - 50) && asteroid.get_global_transform_with_canvas()[2].x < 50:
 			spawn_item(asteroid)
-			#spawn_powerup(asteroid)
+			asteroid.spawned_item = true
+			
+	var powerup_drop_chance = rng.randi_range(Global.powerup_chance_min, Global.powerup_chance_max)
+	if powerup_drop_chance <= 10 && !asteroid.spawned_item:
+		if asteroid.get_global_transform_with_canvas()[2].y > 400:
+			#if asteroid.get_global_transform_with_canvas()[2].x > (screen_size.x - 50) && asteroid.get_global_transform_with_canvas()[2].x < 50:
+			spawn_powerup(asteroid)
 			asteroid.spawned_item = true
 
-	$Control/ProgressBar.value = asteroid_counter
+	$Control/LevelProgress/ProgressBar.value = asteroid_counter
+	$Control/LevelProgress/Min.text = str(asteroid_counter)
 	$Player.credits += asteroid.credits
+	$Control/Gold/Label.text = dot_seperate($Player.credits)
 	#$Control/LevelCreditsDPS.text = "C: " + dot_seperate($Player.credits)
 	
 	if asteroid_counter == asteroid_clear_cap:
 		level_cleared()
 	else:
 		#asteroid.show_exp(asteroid.exp_give)
-		$Spaceship.exp_current += asteroid.exp_give
-		$Control/Player/ExpBar.value = $Spaceship.exp_current
+		
+		if asteroid.level+4 <= $Spaceship.level:
+			var exp = round(asteroid.exp_give * 0.6)
+			$Spaceship.exp_current += exp
+			$Control/ExpText.text = "+" + str(exp) + " EXP"
+		elif asteroid.level+3 == $Spaceship.level:
+			var exp = round(asteroid.exp_give * 0.7)
+			$Spaceship.exp_current += exp
+			$Control/ExpText.text = "+" + str(exp) + " EXP"
+		elif asteroid.level+2 == $Spaceship.level:
+			var exp = round(asteroid.exp_give * 0.8)
+			$Spaceship.exp_current += exp
+			$Control/ExpText.text = "+" + str(exp) + " EXP"
+		elif asteroid.level+4 == $Spaceship.level:
+			var exp = round(asteroid.exp_give * 0.9)
+			$Spaceship.exp_current += exp
+			$Control/ExpText.text = "+" + str(exp) + " EXP"
+		elif asteroid.level == $Spaceship.level:
+			var exp = round(asteroid.exp_give * 1)
+			$Spaceship.exp_current += exp
+			$Control/ExpText.text = "+" + str(exp) + " EXP"
+		elif asteroid.level-1 == $Spaceship.level:
+			var exp = round(asteroid.exp_give * 1.15)
+			$Spaceship.exp_current += exp
+			$Control/ExpText.text = "+" + str(exp) + " EXP"
+		elif asteroid.level-2 == $Spaceship.level:
+			var exp = round(asteroid.exp_give * 1.2)
+			$Spaceship.exp_current += exp
+			$Control/ExpText.text = "+" + str(exp) + " EXP"
+		elif asteroid.level-3 == $Spaceship.level:
+			var exp = round(asteroid.exp_give * 1.25)
+			$Spaceship.exp_current += exp
+			$Control/ExpText.text = "+" + str(exp) + " EXP"
+		elif asteroid.level-3 > $Spaceship.level:
+			var diff = asteroid.level - $Spaceship.level
+			
+			if diff >= 10 && diff < 20:
+				var exp = round(asteroid.exp_give * 3)
+				$Spaceship.exp_current += exp
+				$Control/ExpText.text = "+" + str(exp) + " EXP"
+			elif diff >= 20 && diff < 30:
+				var exp = round(asteroid.exp_give * 4)
+				$Spaceship.exp_current += exp
+				$Control/ExpText.text = "+" + str(exp) + " EXP"
+			elif diff >= 30 && diff < 40:
+				var exp = round(asteroid.exp_give * 5)
+				$Spaceship.exp_current += exp
+				$Control/ExpText.text = "+" + str(exp) + " EXP"
+			elif diff >= 40 && diff < 60:
+				var exp = round(asteroid.exp_give * 7)
+				$Spaceship.exp_current += exp
+				$Control/ExpText.text = "+" + str(exp) + " EXP"
+
+		
+		$Control/SkillBar/ExpBar.value = $Spaceship.exp_current
+		$Control/SkillBar/Exp.text = str($Spaceship.exp_current) + " / " + str($Spaceship.exp_max)
 		
 		if $Spaceship.exp_current >= $Spaceship.exp_max:
+			show_level_up()
 			$Spaceship.level_up()
-			$Control/Player/HpBar.value = $Spaceship.hp_current
-			
-			$Control/Player/ExpBar.max_value = $Spaceship.exp_max
-			$Control/Player/ExpBar.value = $Spaceship.exp_current
-			$Control/Player/LevelText.text = str($Spaceship.level)
+			$Control/SkillBar/HPBar.value = $Spaceship.hp_current
+			$Control/SkillBar/HPBar/HPBarText.text = (str($Spaceship.hp_current) + " / " + str(Global.spaceship_hp_max))
+			$Control/SkillBar/ExpBar.max_value = $Spaceship.exp_max
+			$Control/SkillBar/ExpBar.value = $Spaceship.exp_current
+			$Control/SkillBar/Exp.text = str($Spaceship.exp_current) + " / " + str($Spaceship.exp_max)
+			$Control/SkillBar/Level/Label.text = str($Spaceship.level)
 			
 			
 	var asteroid_clear_cap_part = asteroid_clear_cap / 5
 	
-	if asteroid_counter == asteroid_clear_cap_part:
-		$Spawner/AsteroidTimer.wait_time = $Spawner/AsteroidTimer.wait_time / 2
-	elif asteroid_counter == asteroid_clear_cap_part * 2:
-		$Spawner/AsteroidTimer.wait_time = $Spawner/AsteroidTimer.wait_time / 2
-	elif asteroid_counter == asteroid_clear_cap_part * 3:
+	if asteroid_counter == asteroid_clear_cap_part * 2:
 		$Spawner/AsteroidTimer.wait_time = $Spawner/AsteroidTimer.wait_time / 2
 	elif asteroid_counter == asteroid_clear_cap_part * 4:
 		$Spawner/AsteroidTimer.wait_time = $Spawner/AsteroidTimer.wait_time / 2
+
+
+func show_level_up():
+	$Control/LevelUp.show()
+	$LevelUpTimer.start()
+	
 
 
 func spawn_powerup(asteroid):
@@ -174,10 +241,12 @@ func spawn_item(asteroid):
 	else:
 		rand_level = $Spaceship.level
 	
+	print("Span item with level: " , rand_level)
+	
 	#func init(item_name, rar, lvl, upgr, val, tex_no, equ, type):
 	if rand_type == 1:
 		var item_weapon = ItemWeapon.instantiate()
-		item_weapon.init("No name", rand_rarity, rand_level, 0, 100, "", "inventory", "weapon")
+		item_weapon.init("No name", rand_rarity, rand_level, 5, 100, "", "inventory", "weapon")
 		item_weapon.position.x = item_spawn_location[2].x
 		item_weapon.position.y = item_spawn_location[2].y
 		item_weapon.connect("collected",Callable($Player,"_on_Item_collected").bind(item_weapon))
@@ -223,7 +292,7 @@ func _on_Spaceship_dead():
 	$PlayedTimer.stop()
 	if $Player.max_dps < Global.damage_dealt_per_second_max:
 		$Player.max_dps = Global.damage_dealt_per_second_max
-	$Control/Abilities.hide()
+	#$Control/Abilities.hide()
 	$DPSTimer.stop()
 	#$PowerupTimer.stop()
 	$Control/LevelFailed.show()
@@ -243,9 +312,9 @@ func level_cleared():
 	if $Player.max_dps < Global.damage_dealt_per_second_max:
 		$Player.max_dps = Global.damage_dealt_per_second_max
 	
-	await get_tree().create_timer(4).timeout
+	await get_tree().create_timer(3).timeout
 	$Control/LevelCleared.show()
-	$Control/Abilities.hide()
+	#$Control/SkillBar.hide()
 	$Spaceship.queue_free()
 	save_game()
 	
@@ -272,9 +341,6 @@ func _on_Ability_3_pressed():
 	pass
 	print("3")
 #	$Spaceship.weapon.damage_base -= 5
-
-
-
 
 
 func save_game():
@@ -335,9 +401,9 @@ func _on_DPSTimer_timeout():
 	#$DPSProgress/DPSText.text = str(Global.damage_dealt_per_second)
 	#$DPSProgress/DPSText.text = str(Global.damage_dealt_per_second_average)
 	
-	$Control/DPSMeter/DPS.text = str(Global.damage_dealt_per_second)
-	$Control/DPSMeter/DPSAvg.text = str(Global.damage_dealt_per_second_average)
-	$Control/DPSMeter/DpsMax.text = str(Global.damage_dealt_per_second_max)
+	$Control/DPSMeter/DPS.text = str(dot_seperate(Global.damage_dealt_per_second))
+	$Control/DPSMeter/DPSAvg.text = str(dot_seperate(Global.damage_dealt_per_second_average))
+	$Control/DPSMeter/DpsMax.text = str(dot_seperate(Global.damage_dealt_per_second_max))
 	
 	dps_timer_elapsed_time += 1
 	
@@ -448,7 +514,7 @@ func explode_all_asteroids():
 
 
 func _on_pause_menu_button_pressed():
-	save_game()
+	#save_game()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://src/scene/menu/Menu.tscn")
 
@@ -464,3 +530,7 @@ func _on_level_cleared_failed_button_pressed():
 
 func _on_spawner_asteroid_spawned(asteroid):
 	asteroid.connect("dead_by_shot", Callable(self,"_on_Asteroid_dead_by_shot").bind(asteroid))
+
+
+func _on_level_up_timer_timeout():
+	$Control/LevelUp.hide()

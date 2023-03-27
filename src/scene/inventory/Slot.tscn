@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://bwkbvtjr4dg7x"]
 
-[ext_resource type="Texture2D" uid="uid://cq81te0lpgwui" path="res://assets/ui/icons/icons_blank/Icon_inventory.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://cjsrpftf1uan1" path="res://assets/ui/darkpixelrpg/icons/inventory/icon_plain_1.png" id="1_ln8g0"]
 [ext_resource type="Script" path="res://src/scene/inventory/Slot.gd" id="2"]
 
 [node name="Slot" type="TextureRect"]
@@ -8,6 +8,6 @@ custom_minimum_size = Vector2(192, 192)
 offset_right = 192.0
 offset_bottom = 192.0
 pivot_offset = Vector2(-3.8147e-06, 0)
-texture = ExtResource("1")
+texture = ExtResource("1_ln8g0")
 expand_mode = 1
 script = ExtResource("2")
