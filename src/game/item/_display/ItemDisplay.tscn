@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyx1isadmbctj"]
+[gd_scene load_steps=11 format=3 uid="uid://dyx1isadmbctj"]
 
-[ext_resource type="PackedScene" uid="uid://diplmnwj523y7" path="res://src/util/input/DoubeTap.tscn" id="2"]
 [ext_resource type="Script" path="res://src/game/item/ItemDrag.gd" id="3"]
-[ext_resource type="Texture2D" uid="uid://dmr3i82kbv52n" path="res://assets/ui/inventroy/slot_64x64.png" id="3_k0qv4"]
 [ext_resource type="PackedScene" uid="uid://dvegk5s3xp5pp" path="res://src/util/textureloader/TextureLoader.tscn" id="5"]
 [ext_resource type="Script" path="res://src/game/item/_display/ItemDisplay.gd" id="6"]
-[ext_resource type="Texture2D" uid="uid://l6c54o6dful" path="res://assets/ui/darkpixelrpg/bars/frame_1_416 × 317.png" id="6_nul6t"]
+[ext_resource type="Texture2D" uid="uid://cej042o468ur2" path="res://assets/ui/darkpixelrpg/bars/frame_0.png" id="6_jff5e"]
 [ext_resource type="Texture2D" uid="uid://dbkl56e0lsuwq" path="res://assets/items/swords/sword_1_1.png" id="6_pqxoo"]
+[ext_resource type="Texture2D" uid="uid://bse2ic62jbwq8" path="res://assets/ui/darkpixelrpg/bars/frame_3_768 × 366.png" id="7_2vd82"]
+[ext_resource type="Texture2D" uid="uid://de5omd1f81gu4" path="res://assets/ui/darkpixelrpg/decors/line/decor_line_simple.png" id="9_3i0va"]
+[ext_resource type="Texture2D" uid="uid://br41hohn08a44" path="res://assets/ui/darkpixelrpg/icons/items/32_coin.png" id="10_t6k0b"]
+[ext_resource type="Texture2D" uid="uid://dsph0p7do1e5b" path="res://assets/ui/darkpixelrpg/buttons/special/diamond_plain.png" id="11_ddj1x"]
+[ext_resource type="Texture2D" uid="uid://e3posa35vdg0" path="res://assets/ui/darkpixelrpg/buttons/special/button_diamond.png" id="12_tfmog"]
 
 [node name="ItemDisplay" type="Node2D"]
 texture_filter = 1
@@ -21,7 +24,6 @@ stretch_mode = 5
 script = ExtResource("3")
 
 [node name="Level" type="Label" parent="."]
-visible = false
 offset_left = 16.0
 offset_top = 120.0
 offset_right = 56.0
@@ -33,7 +35,6 @@ text = "60"
 vertical_alignment = 2
 
 [node name="Upgrade" type="Label" parent="."]
-visible = false
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 56.0
@@ -44,7 +45,6 @@ theme_override_font_sizes/font_size = 24
 text = "+9"
 
 [node name="Background_1" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 176.0
@@ -420,59 +420,245 @@ mouse_filter = 2
 color = Color(1, 0.588235, 0, 1)
 
 [node name="TextureLoader" parent="." instance=ExtResource("5")]
+
+[node name="PopupPanel" type="Window" parent="."]
+transparent_bg = true
+size = Vector2i(917, 1091)
 visible = false
+borderless = true
+popup_window = true
 
-[node name="TouchScreenButton" parent="." instance=ExtResource("2")]
-scale = Vector2(2.75, 2.75)
-texture_normal = ExtResource("3_k0qv4")
-
-[node name="Popup" type="Control" parent="."]
+[node name="Popup" type="Control" parent="PopupPanel"]
+texture_filter = 1
+custom_minimum_size = Vector2(909, 1083)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 640.0
-offset_bottom = 832.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 913.0
+offset_bottom = 1087.0
 
-[node name="Background" type="NinePatchRect" parent="Popup"]
+[node name="Background" type="TextureRect" parent="PopupPanel/Popup"]
+custom_minimum_size = Vector2(909, 1083)
 layout_mode = 0
-offset_right = 640.0
-offset_bottom = 832.0
-texture = ExtResource("6_nul6t")
-region_rect = Rect2(0, 0, 416, 317)
-patch_margin_left = 30
-patch_margin_top = 30
-patch_margin_right = 26
-patch_margin_bottom = 27
+offset_right = 606.0
+offset_bottom = 722.0
+texture = ExtResource("6_jff5e")
 
-[node name="Title" type="Label" parent="Popup"]
-offset_left = 64.0
-offset_top = 64.0
-offset_right = 384.0
-offset_bottom = 192.0
-theme_override_font_sizes/font_size = 30
-text = "Schwert"
+[node name="Title" type="Label" parent="PopupPanel/Popup"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 48.0
+offset_right = 848.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 35
+text = "Sword of Noobs  +9"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
-[node name="Item" type="TextureRect" parent="Popup"]
+[node name="Type" type="Label" parent="PopupPanel/Popup"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 176.0
+offset_right = 488.0
+offset_bottom = 215.0
+theme_override_font_sizes/font_size = 25
+text = "Common Sword"
+vertical_alignment = 1
+
+[node name="MainStats" type="Control" parent="PopupPanel/Popup"]
+anchors_preset = 0
+offset_left = 112.0
+offset_top = 216.0
+offset_right = 488.0
+offset_bottom = 544.0
+
+[node name="MainStatFirst" type="Label" parent="PopupPanel/Popup/MainStats"]
+layout_mode = 0
+offset_top = 25.0
+offset_right = 376.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 100
+text = "1.050"
+vertical_alignment = 2
+
+[node name="MainStatType" type="Label" parent="PopupPanel/Popup/MainStats"]
+layout_mode = 0
+offset_top = 152.0
+offset_right = 376.0
+offset_bottom = 192.0
+theme_override_colors/font_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_font_sizes/font_size = 25
+text = "Damage "
+vertical_alignment = 2
+
+[node name="MainStatSecond" type="Label" parent="PopupPanel/Popup/MainStats"]
+layout_mode = 0
+offset_top = 220.0
+offset_right = 376.0
+offset_bottom = 293.0
+theme_override_font_sizes/font_size = 50
+text = "5.00"
+vertical_alignment = 2
+
+[node name="MainStatSecondType" type="Label" parent="PopupPanel/Popup/MainStats"]
+layout_mode = 0
+offset_top = 288.0
+offset_right = 376.0
+offset_bottom = 328.0
+theme_override_colors/font_color = Color(0.588235, 0.588235, 0.588235, 1)
+theme_override_font_sizes/font_size = 25
+text = "Attacks per Second"
+vertical_alignment = 2
+
+[node name="ItemFrame" type="NinePatchRect" parent="PopupPanel/Popup"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 176.0
+offset_right = 800.0
+offset_bottom = 542.0
+texture = ExtResource("7_2vd82")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 18
+patch_margin_bottom = 16
+
+[node name="Item" type="TextureRect" parent="PopupPanel/Popup"]
 texture_filter = 1
-offset_left = 416.0
-offset_top = 32.0
-offset_right = 1184.0
-offset_bottom = 1056.0
+layout_mode = 0
+offset_left = 536.0
+offset_top = 216.0
+offset_right = 1496.0
+offset_bottom = 1368.0
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("6_pqxoo")
 stretch_mode = 5
 
-[node name="ItemFrame" type="TextureRect" parent="Popup"]
+[node name="PrimaryStats" type="Control" parent="PopupPanel/Popup"]
+anchors_preset = 0
+offset_left = 112.0
+offset_top = 568.0
+offset_right = 800.0
+offset_bottom = 736.0
+
+[node name="PrimaryDecor" type="TextureRect" parent="PopupPanel/Popup/PrimaryStats"]
 layout_mode = 0
-offset_left = 416.0
-offset_top = 32.0
-offset_right = 608.0
-offset_bottom = 352.0
+offset_right = 696.0
+offset_bottom = 24.0
+texture = ExtResource("9_3i0va")
+stretch_mode = 5
 
-[node name="PopupPanel" type="PopupPanel" parent="."]
-initial_position = 1
-size = Vector2i(640, 832)
+[node name="Bullets" type="VBoxContainer" parent="PopupPanel/Popup/PrimaryStats"]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 35.0
+offset_bottom = 176.0
+theme_override_constants/separation = 20
 
-[connection signal="double_tap" from="TouchScreenButton" to="." method="_on_touch_screen_button_double_tap"]
-[connection signal="close_requested" from="PopupPanel" to="." method="_on_popup_panel_close_requested"]
+[node name="Bullet1" type="TextureRect" parent="PopupPanel/Popup/PrimaryStats/Bullets"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("11_ddj1x")
+stretch_mode = 5
+
+[node name="Bullet2" type="TextureRect" parent="PopupPanel/Popup/PrimaryStats/Bullets"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("11_ddj1x")
+stretch_mode = 5
+
+[node name="Bullet3" type="TextureRect" parent="PopupPanel/Popup/PrimaryStats/Bullets"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("11_ddj1x")
+stretch_mode = 5
+
+[node name="Stats" type="VBoxContainer" parent="PopupPanel/Popup/PrimaryStats"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 24.0
+offset_right = 464.0
+offset_bottom = 176.0
+theme_override_constants/separation = 15
+
+[node name="Stat1" type="Label" parent="PopupPanel/Popup/PrimaryStats/Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "+3% Critchance"
+
+[node name="Stat2" type="Label" parent="PopupPanel/Popup/PrimaryStats/Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "+6% Critdamage"
+
+[node name="Stat3" type="Label" parent="PopupPanel/Popup/PrimaryStats/Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "+2 Sockets"
+
+[node name="SecondaryDecor" type="TextureRect" parent="PopupPanel/Popup"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 760.0
+offset_right = 800.0
+offset_bottom = 784.0
+texture = ExtResource("9_3i0va")
+stretch_mode = 5
+
+[node name="Sockets" type="VBoxContainer" parent="PopupPanel/Popup"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 784.0
+offset_right = 162.0
+offset_bottom = 928.0
+theme_override_constants/separation = 8
+
+[node name="Socket1" type="TextureRect" parent="PopupPanel/Popup/Sockets"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("12_tfmog")
+stretch_mode = 5
+
+[node name="Socket2" type="TextureRect" parent="PopupPanel/Popup/Sockets"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("12_tfmog")
+stretch_mode = 5
+
+[node name="Footer" type="Control" parent="PopupPanel/Popup"]
+anchors_preset = 0
+offset_left = 88.0
+offset_top = 936.0
+offset_right = 816.0
+offset_bottom = 992.0
+
+[node name="Level" type="Label" parent="PopupPanel/Popup/Footer"]
+layout_mode = 0
+offset_left = 552.0
+offset_right = 712.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 25
+text = "Level 42"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PopupPanel/Popup/Footer"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 56.0
+offset_bottom = 40.0
+texture = ExtResource("10_t6k0b")
+stretch_mode = 5
+
+[node name="Value" type="Label" parent="PopupPanel/Popup/Footer"]
+layout_mode = 0
+offset_left = 56.0
+offset_right = 278.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 25
+text = "6.514"
+vertical_alignment = 1
+
+[connection signal="gui_input" from="Texture2D" to="." method="_on_texture_2d_gui_input"]
+[connection signal="focus_exited" from="PopupPanel" to="." method="_on_popup_panel_focus_exited"]

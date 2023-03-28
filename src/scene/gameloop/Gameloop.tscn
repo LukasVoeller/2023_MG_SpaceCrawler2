@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://iv4viikpx7gw"]
+[gd_scene load_steps=29 format=3 uid="uid://iv4viikpx7gw"]
 
 [ext_resource type="Script" path="res://src/scene/gameloop/Gameloop.gd" id="1_kjm50"]
 [ext_resource type="PackedScene" uid="uid://dv7miuwh1cmvx" path="res://src/util/spawner/Spawner.tscn" id="2_r0qee"]
@@ -18,14 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://dlyi1mi7n45pi" path="res://assets/ui/darkpixelrpg/progress/frame/frame_lattice_5.png" id="19_lu8nd"]
 [ext_resource type="Texture2D" uid="uid://g2nykwp861yp" path="res://assets/ui/ads/android-testad-0-admob.png" id="19_pwvep"]
 [ext_resource type="Texture2D" uid="uid://i6x06ahk6jpk" path="res://assets/_unused/icons_game/rpg/70_magic.png" id="20_4usoh"]
-[ext_resource type="Texture2D" uid="uid://pjtvdnyblc7d" path="res://assets/ui/darkpixelrpg/buttons/square/button_arrow_left.png" id="20_wo7fb"]
 [ext_resource type="Texture2D" uid="uid://wjm36pk422jn" path="res://assets/_unused/icons_game/rpg/71_magic.png" id="21_21ehy"]
-[ext_resource type="Texture2D" uid="uid://dun4llbklmvdj" path="res://assets/ui/darkpixelrpg/buttons/square/button_arrow_left_pressed.png" id="21_hva6l"]
 [ext_resource type="Texture2D" uid="uid://b57uk6ntytpje" path="res://assets/_unused/icons_game/rpg/72_magic.png" id="22_qhfrw"]
 [ext_resource type="Texture2D" uid="uid://bqkibi2i8k03t" path="res://assets/ui/darkpixelrpg/orbs/red/orb_red_0.png" id="22_ymfv1"]
 [ext_resource type="Texture2D" uid="uid://d1me0g30b7t12" path="res://assets/ui/darkpixelrpg/buttons/rect-v/button_menu.png" id="25_kx2ey"]
 [ext_resource type="Texture2D" uid="uid://kbfkk56olk6i" path="res://assets/ui/darkpixelrpg/buttons/rect-v/button_menu_pressed.png" id="26_l8c6k"]
-[ext_resource type="Texture2D" uid="uid://cwuo2egraqqyv" path="res://assets/ui/darkpixelrpg/icons/items/69_magic.png" id="26_wu5sj"]
 [ext_resource type="Texture2D" uid="uid://e3posa35vdg0" path="res://assets/ui/darkpixelrpg/buttons/special/button_diamond.png" id="27_hc7mj"]
 [ext_resource type="FontFile" uid="uid://dsit7y8v2i7mb" path="res://assets/ui/darkpixelrpg/fonts/DarkPixel_PixelSplitter.ttf" id="28_jps8n"]
 [ext_resource type="Texture2D" uid="uid://bvwhauycj7fwm" path="res://assets/ui/darkpixelrpg/decors/line/decor_line_arrow_2.png" id="29_amthy"]
@@ -515,6 +512,8 @@ offset_top = 32.0
 offset_right = 112.0
 offset_bottom = 80.0
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("12_165ml")
 theme_override_font_sizes/font_size = 30
 text = "Max:"
@@ -530,6 +529,8 @@ offset_top = 32.0
 offset_right = 304.0
 offset_bottom = 80.0
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("12_165ml")
 theme_override_font_sizes/font_size = 30
 text = "0"
@@ -544,6 +545,8 @@ offset_top = -80.0
 offset_right = 112.0
 offset_bottom = -16.0
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("12_165ml")
 theme_override_font_sizes/font_size = 40
 text = "DPS:"
@@ -559,6 +562,8 @@ offset_top = -80.0
 offset_right = 304.0
 offset_bottom = -16.0
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("12_165ml")
 theme_override_font_sizes/font_size = 40
 text = "0"
@@ -573,6 +578,8 @@ offset_top = -16.0
 offset_right = 112.0
 offset_bottom = 32.0
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("12_165ml")
 theme_override_font_sizes/font_size = 30
 text = "Avg:"
@@ -588,6 +595,8 @@ offset_top = -16.0
 offset_right = 304.0
 offset_bottom = 32.0
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("12_165ml")
 theme_override_font_sizes/font_size = 30
 text = "0"
@@ -621,6 +630,8 @@ offset_left = -448.0
 offset_right = -96.0
 offset_bottom = 128.0
 grow_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 32
 text = "100.000"
 horizontal_alignment = 2
@@ -666,23 +677,6 @@ text = "Hier könnte Ihre Werbung stehen!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PauseButton" type="TextureButton" parent="Control/Footer"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -80.0
-offset_top = -80.0
-offset_right = -16.0
-offset_bottom = -16.0
-grow_horizontal = 0
-grow_vertical = 0
-texture_normal = ExtResource("20_wo7fb")
-texture_pressed = ExtResource("21_hva6l")
-stretch_mode = 0
-
 [node name="SkillBar" type="Control" parent="Control"]
 layout_mode = 1
 anchors_preset = 7
@@ -691,19 +685,18 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -576.0
-offset_top = -576.0
+offset_top = -600.0
 offset_right = 576.0
-offset_bottom = -192.0
+offset_bottom = -184.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="HPBar" type="TextureProgressBar" parent="Control/SkillBar"]
-visible = false
 layout_mode = 0
-offset_left = 40.0
-offset_top = 24.0
-offset_right = 293.0
-offset_bottom = 284.0
+offset_left = 32.0
+offset_top = 8.0
+offset_right = 332.0
+offset_bottom = 308.0
 scale = Vector2(1.2, 1.2)
 value = 50.0
 fill_mode = 3
@@ -712,11 +705,13 @@ texture_progress = ExtResource("22_ymfv1")
 
 [node name="HPBarText" type="Label" parent="Control/SkillBar/HPBar"]
 layout_mode = 0
-offset_right = 211.0
-offset_bottom = 217.0
+offset_right = 250.0
+offset_bottom = 250.0
 scale = Vector2(1.2, 1.2)
-theme_override_font_sizes/font_size = 25
-text = "100 / 100"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 16
+text = "10000 / 10000"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -727,81 +722,25 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -832.0
-offset_top = -429.0
+offset_left = -576.0
+offset_top = -416.0
 offset_right = 576.0
-offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("19_kxcev")
 stretch_mode = 5
 
-[node name="ExpBar" type="TextureProgressBar" parent="Control/SkillBar"]
-visible = false
-layout_mode = 0
-offset_left = 402.0
-offset_top = 133.0
-offset_right = 599.0
-offset_bottom = 148.0
-scale = Vector2(3.85, 2.5)
-value = 50.0
-nine_patch_stretch = true
-texture_over = ExtResource("19_lu8nd")
-texture_progress = ExtResource("5_wvg4l")
-
-[node name="Exp" type="Label" parent="Control/SkillBar"]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -174.0
-offset_top = -251.0
-offset_right = 584.0
-offset_bottom = -213.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 16
-text = "10 / 10"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Level" type="TextureRect" parent="Control/SkillBar"]
-visible = false
-layout_mode = 0
-offset_left = 346.0
-offset_top = 94.0
-offset_right = 458.0
-offset_bottom = 206.0
-texture = ExtResource("27_hc7mj")
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="Control/SkillBar/Level"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 114.0
-offset_bottom = 114.0
-theme_override_font_sizes/font_size = 32
-text = "60"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="MenuButton" type="TextureButton" parent="Control/SkillBar"]
-visible = false
 layout_mode = 0
-offset_left = 358.0
-offset_top = 197.0
-offset_right = 446.0
-offset_bottom = 349.0
+offset_left = 394.0
+offset_top = 217.0
+offset_right = 482.0
+offset_bottom = 369.0
 texture_normal = ExtResource("25_kx2ey")
 texture_pressed = ExtResource("26_l8c6k")
 stretch_mode = 5
 
 [node name="Abilities" type="TextureRect" parent="Control/SkillBar"]
-visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -819,39 +758,89 @@ stretch_mode = 5
 
 [node name="Ability_1" type="TextureButton" parent="Control/SkillBar/Abilities"]
 layout_mode = 0
-offset_left = 17.5
-offset_top = 8.0
-offset_right = 81.5
-offset_bottom = 72.0
+offset_left = 44.5
+offset_top = 1.5
+offset_right = 108.5
+offset_bottom = 65.5
 texture_normal = ExtResource("20_4usoh")
 stretch_mode = 5
 
 [node name="Ability_2" type="TextureButton" parent="Control/SkillBar/Abilities"]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 8.0
-offset_right = 168.0
-offset_bottom = 72.0
+offset_left = 136.5
+offset_top = 1.5
+offset_right = 200.5
+offset_bottom = 65.5
 texture_normal = ExtResource("21_21ehy")
 stretch_mode = 5
 
 [node name="Ability_3" type="TextureButton" parent="Control/SkillBar/Abilities"]
 layout_mode = 0
-offset_left = 276.0
-offset_top = 8.0
-offset_right = 340.0
-offset_bottom = 72.0
+offset_left = 229.0
+offset_top = 1.5
+offset_right = 293.0
+offset_bottom = 65.5
 texture_normal = ExtResource("22_qhfrw")
 stretch_mode = 5
 
-[node name="Ability_4" type="TextureButton" parent="Control/SkillBar/Abilities"]
+[node name="ExpBar" type="Control" parent="Control/SkillBar"]
+anchors_preset = 0
+offset_left = 384.0
+offset_top = 104.0
+offset_right = 1088.0
+offset_bottom = 216.0
+
+[node name="ExpBar" type="TextureProgressBar" parent="Control/SkillBar/ExpBar"]
 layout_mode = 0
-offset_left = 190.0
-offset_top = 8.0
-offset_right = 254.0
-offset_bottom = 72.0
-texture_normal = ExtResource("26_wu5sj")
+offset_left = 56.0
+offset_top = 37.0
+offset_right = 253.0
+offset_bottom = 52.0
+scale = Vector2(3.29, 2.5)
+value = 50.0
+nine_patch_stretch = true
+texture_over = ExtResource("19_lu8nd")
+texture_progress = ExtResource("5_wvg4l")
+
+[node name="ExpText" type="Label" parent="Control/SkillBar/ExpBar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -296.0
+offset_top = -75.0
+offset_right = 352.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 16
+text = "10 / 10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="TextureRect" parent="Control/SkillBar/ExpBar"]
+layout_mode = 0
+offset_right = 112.0
+offset_bottom = 112.0
+texture = ExtResource("27_hc7mj")
 stretch_mode = 5
+
+[node name="LevelText" type="Label" parent="Control/SkillBar/ExpBar/Level"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 114.0
+offset_bottom = 114.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "60"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LevelUp" type="Label" parent="Control"]
 visible = false
@@ -886,10 +875,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 130.0
-offset_top = -488.0
-offset_right = 282.0
-offset_bottom = -448.0
+offset_left = 128.0
+offset_top = -512.0
+offset_right = 248.0
+offset_bottom = -464.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 24
@@ -908,8 +897,7 @@ environment = SubResource("26")
 [connection signal="pressed" from="Control/LevelFailed/LevelClearedFailedButton" to="." method="_on_level_cleared_failed_button_pressed"]
 [connection signal="pressed" from="Control/Pause/PauseResumeButton" to="." method="_on_pause_resume_button_pressed"]
 [connection signal="pressed" from="Control/Pause/PauseMenuButton" to="." method="_on_pause_menu_button_pressed"]
-[connection signal="pressed" from="Control/Footer/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Control/SkillBar/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="Control/SkillBar/Abilities/Ability_1" to="." method="_on_Ability_1_pressed"]
 [connection signal="pressed" from="Control/SkillBar/Abilities/Ability_2" to="." method="_on_Ability_1_pressed"]
 [connection signal="pressed" from="Control/SkillBar/Abilities/Ability_3" to="." method="_on_Ability_1_pressed"]
-[connection signal="pressed" from="Control/SkillBar/Abilities/Ability_4" to="." method="_on_Ability_1_pressed"]

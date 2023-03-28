@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://crk4p8p4nyfk4"]
+
+[ext_resource type="Texture2D" uid="uid://bo78tabiekpwr" path="res://assets/asteroids/asteroid_04.png" id="1_x0od5"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1efrg"]
+lifetime_randomness = 0.5
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 400.0
+scale_min = 0.5
+
+[node name="AsteroidExplosionParticles" type="GPUParticles2D"]
+texture_filter = 1
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_1efrg")
+texture = ExtResource("1_x0od5")
+lifetime = 2.0
+speed_scale = 3.0
+explosiveness = 1.0
+randomness = 1.0

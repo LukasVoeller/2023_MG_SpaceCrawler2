@@ -8,6 +8,7 @@ signal dead_by_playercollision
 const damage_text = preload("res://src/util/text/damage_text/DamageText.tscn")
 const exp_text = preload("res://src/util/text/exp_text/ExpText.tscn")
 const hit_particles = preload("res://src/util/particle/AsteroidHitParticles.tscn")
+const ExplosionParticles = preload("res://src/util/particle/AsteroidExplosionParticles.tscn")
 
 var asteroid_tex_1 = preload("res://assets/asteroids/asteroid_01.png")
 var asteroid_tex_2 = preload("res://assets/asteroids/asteroid_02.png")
@@ -198,6 +199,19 @@ func show_particles(pos, angle):
 
 
 func explode():
+	var explosion_particles_i = ExplosionParticles.instantiate()
+	explosion_particles_i.emitting = true
+	explosion_particles_i.one_shot = true
+	add_child(explosion_particles_i)
+	
+	$Control/Level.hide()
+	$Control/ProgressBar.hide()
+	$Sprite2D.hide()
+	$ExplosionAnimation.show()
+	$ExplosionAnimation.play()
+
+
+func explode_old():
 	#$CollisionPolygon2D.queue_free()
 	$Control/Level.hide()
 	$Control/ProgressBar.hide()
