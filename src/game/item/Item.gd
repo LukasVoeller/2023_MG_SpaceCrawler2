@@ -12,7 +12,19 @@ var texture_no
 var equipped = ""
 var type = ""
 
-const Tooltip = preload("res://src/util/tooltip/Tooltip.tscn")
+var stats = {
+	"primary_stat_first": 0,
+	"primary_stat_second": 0,
+	
+	"secondary_stat_first": 0,
+	"secondary_stat_second": 0,
+	"secondary_stat_third": 0,
+	
+	"socket_1": 0,
+	"socket_2": 0,
+}
+
+#const Tooltip = preload("res://src/util/tooltip/Tooltip.tscn")
 
 func _ready():
 	pass
@@ -22,7 +34,7 @@ func get_copy():
 	pass
 
 
-func init(_name, rar, lvl, upgr, val, tex_no, equ, _type):
+func init(_name, _rar, _lvl, _upgr, _val, _tex_no, _equ, _type, _stats):
 	pass
 
 

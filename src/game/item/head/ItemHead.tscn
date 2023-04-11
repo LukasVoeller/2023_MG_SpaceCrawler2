@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0vgty00bnse0"]
+[gd_scene load_steps=5 format=3 uid="uid://b0vgty00bnse0"]
 
 [ext_resource type="Script" path="res://src/game/item/ItemDrag.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://ccew0tqahh40p" path="res://assets/items/armor/head_1_T1.png" id="2_mxg7d"]
 [ext_resource type="PackedScene" uid="uid://dvegk5s3xp5pp" path="res://src/util/textureloader/TextureLoader.tscn" id="3"]
 [ext_resource type="Script" path="res://src/game/item/head/ItemHead.gd" id="4"]
 
@@ -30,7 +29,6 @@ offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(40, 40)
-texture = ExtResource("2_mxg7d")
 stretch_mode = 4
 script = ExtResource("2")
 

@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://nupo3bql6heh"]
+[gd_scene load_steps=3 format=3 uid="uid://nupo3bql6heh"]
 
 [ext_resource type="Script" path="res://src/game/projectile/Projectile.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://dbkl56e0lsuwq" path="res://assets/items/swords/sword_1_1.png" id="2_pynde"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v07pt"]
 size = Vector2(16, 64)
@@ -19,19 +18,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -32.0
-offset_right = 16.0
-offset_bottom = 22.0
+offset_left = -32.0
+offset_right = 13.0
+offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1, 1.18571)
-texture = ExtResource("2_pynde")
+rotation = -0.785398
 stretch_mode = 5
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(3.57628e-07, 4)
-scale = Vector2(0.8, 2.8)
+position = Vector2(3.57628e-07, -4.76837e-07)
+scale = Vector2(0.8, 3.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_v07pt")

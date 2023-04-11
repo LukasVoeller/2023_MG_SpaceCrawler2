@@ -12,7 +12,7 @@ func _ready():
 	rng.randomize()
 	generate_quests()
 	
-	get_node("Control/Background/ScrollContainer").get_v_scroll_bar().custom_minimum_size.x = 25
+	get_node("Control/Background/ScrollContainer").get_v_scroll_bar().custom_minimum_size.x = 75
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

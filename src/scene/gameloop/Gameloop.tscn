@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://iv4viikpx7gw"]
+[gd_scene load_steps=30 format=3 uid="uid://kk1jy1s3pfss"]
 
 [ext_resource type="Script" path="res://src/scene/gameloop/Gameloop.gd" id="1_kjm50"]
-[ext_resource type="PackedScene" uid="uid://dv7miuwh1cmvx" path="res://src/util/spawner/Spawner.tscn" id="2_r0qee"]
+[ext_resource type="PackedScene" uid="uid://dnxksmfhsmty6" path="res://src/util/spawner/asteroid/AsteroidSpawner.tscn" id="2_1komm"]
+[ext_resource type="PackedScene" uid="uid://my3uaw2dsdr4" path="res://src/util/spawner/item/ItemSpawner.tscn" id="3_dkly8"]
 [ext_resource type="PackedScene" uid="uid://bse16ghhh80i6" path="res://src/util/background/Background.tscn" id="3_l52ca"]
 [ext_resource type="Texture2D" uid="uid://djscjrlmtyfcf" path="res://assets/ui/darkpixelrpg/progress/frame/frame_197 × 15.png" id="4_srty7"]
 [ext_resource type="Texture2D" uid="uid://bvngv1vekgmfw" path="res://assets/ui/darkpixelrpg/progress/bars/lattice/progress_lattice_1.png" id="5_jxnd6"]
@@ -36,12 +37,14 @@ glow_blend_mode = 1
 [node name="Gameloop" type="Node2D"]
 script = ExtResource("1_kjm50")
 
-[node name="Spawner" parent="." instance=ExtResource("2_r0qee")]
+[node name="AsteroidSpawner" parent="." instance=ExtResource("2_1komm")]
 
-[node name="SpaceshipStartPosition" type="Marker2D" parent="."]
-position = Vector2(576, 1280)
+[node name="ItemSpawner" parent="." instance=ExtResource("3_dkly8")]
 
 [node name="Background" parent="." instance=ExtResource("3_l52ca")]
+
+[node name="SpaceshipStartPosition" type="Marker2D" parent="."]
+position = Vector2(576, 1216)
 
 [node name="DPSTimer" type="Timer" parent="."]
 
@@ -220,16 +223,17 @@ vertical_alignment = 1
 
 [node name="LevelCleared" type="Control" parent="Control"]
 visible = false
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -320.0
-offset_right = 320.0
-offset_bottom = 320.0
+offset_left = -448.0
+offset_top = -448.0
+offset_right = 448.0
+offset_bottom = 448.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -240,10 +244,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -320.0
-offset_right = 320.0
-offset_bottom = 320.0
+offset_left = -447.5
+offset_top = -448.0
+offset_right = 448.5
+offset_bottom = 448.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_tog4p")
@@ -255,12 +259,12 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -256.0
-offset_top = 64.0
+offset_top = 128.0
 offset_right = 256.0
-offset_bottom = 192.0
+offset_bottom = 320.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("12_lxkee")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 100
 text = "Victory!"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -302,22 +306,25 @@ stretch_mode = 5
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("12_lxkee")
+theme_override_font_sizes/font_size = 25
 text = "Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LevelFailed" type="Control" parent="Control"]
 visible = false
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -320.0
-offset_right = 320.0
-offset_bottom = 320.0
+offset_left = -447.0
+offset_top = -448.0
+offset_right = 448.0
+offset_bottom = 448.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -328,10 +335,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -320.0
-offset_right = 320.0
-offset_bottom = 320.0
+offset_left = -447.5
+offset_top = -448.0
+offset_right = 447.5
+offset_bottom = 448.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_tog4p")
@@ -344,14 +351,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -256.0
-offset_right = 256.0
+offset_left = -255.5
+offset_top = -320.0
+offset_right = 256.5
 offset_bottom = -128.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("12_lxkee")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 100
 text = "Defeat!"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -392,22 +399,25 @@ stretch_mode = 5
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("12_lxkee")
+theme_override_font_sizes/font_size = 25
 text = "Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Pause" type="Control" parent="Control"]
 visible = false
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -320.0
-offset_right = 320.0
-offset_bottom = 320.0
+offset_left = -447.0
+offset_top = -448.0
+offset_right = 449.0
+offset_bottom = 448.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -418,10 +428,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -320.0
-offset_right = 107.0
-offset_bottom = 107.0
+offset_left = -448.0
+offset_top = -448.0
+offset_right = 148.0
+offset_bottom = 149.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
@@ -432,13 +442,13 @@ stretch_mode = 5
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 66.0
-offset_top = 64.0
-offset_right = -63.0
-offset_bottom = 192.0
+offset_left = 192.0
+offset_top = 128.0
+offset_right = -191.0
+offset_bottom = 320.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("12_lxkee")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 100
 text = "Pause"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -465,6 +475,8 @@ stretch_mode = 5
 layout_mode = 0
 offset_right = 255.0
 offset_bottom = 60.0
+theme_override_fonts/font = ExtResource("12_lxkee")
+theme_override_font_sizes/font_size = 25
 text = "Resume"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -491,6 +503,8 @@ stretch_mode = 5
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("12_lxkee")
+theme_override_font_sizes/font_size = 25
 text = "Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -888,7 +902,7 @@ vertical_alignment = 1
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("26")
 
-[connection signal="asteroid_spawned" from="Spawner" to="." method="_on_spawner_asteroid_spawned"]
+[connection signal="asteroid_spawned" from="AsteroidSpawner" to="." method="_on_asteroid_spawner_asteroid_spawned"]
 [connection signal="timeout" from="DPSTimer" to="." method="_on_DPSTimer_timeout"]
 [connection signal="timeout" from="UpdateSpawnrateTimer" to="." method="_on_UpdateSpawnrateTimer_timeout"]
 [connection signal="timeout" from="PlayedTimer" to="." method="_on_PlayedTimer_timeout"]

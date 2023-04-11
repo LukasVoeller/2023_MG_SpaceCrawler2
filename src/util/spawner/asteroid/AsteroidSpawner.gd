@@ -1,7 +1,7 @@
 extends Node2D
 
 const asteroid = preload("res://src/game/asteroid/Asteroid.tscn")
-const marker = preload("res://src/util/spawner/Marker.tscn")
+const marker = preload("res://src/util/spawner/asteroid/Marker.tscn")
 
 var device_width
 var device_height

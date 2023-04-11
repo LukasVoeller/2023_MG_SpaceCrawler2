@@ -1,5 +1,9 @@
 extends TextureRect
 
+#signal item_dropped
+
+var slots_equ = ["weapon", "shield", "hands", "head", "chest", "feet", "trinket_1", "trinket_2"]
+
 func _get_drag_data(position):
 	if get_tree().get_current_scene().get_name() == "Inventory":
 		var item = get_parent()
@@ -31,11 +35,13 @@ func _can_drop_data(position, data):
 	var target_item_type = get_parent().type
 	var target_slot_type = get_parent().get_parent().slot_name
 	
-	#print("Dragging in ID: ", origin_item_type, " from ", origin_slot_type, " to ", target_item_type, " from ", target_slot_type)
+	var origin_item_level = data["origin_node"].get_parent().level
+	var target_item_level = get_parent().level
+	#print("Dragging in ID: Level ",origin_item_level, " ", origin_item_type, " from ", origin_slot_type, " to Level ", target_item_level, " ", target_item_type, " from ", target_slot_type)
 	
 	data["target_texture"] = texture
 	
-	if origin_item_type == target_item_type:
+	if origin_item_type == target_item_type and origin_item_level <= Global.spaceship_level and target_item_level <= Global.spaceship_level:
 		return true
 	elif origin_slot_type == target_slot_type:
 		return true
@@ -54,7 +60,25 @@ func _drop_data(position, data):
 			var self_item = get_parent()
 			var self_item_parent = get_parent().get_parent()
 			
-			#print("Dropping: ", origin_item.rarity, " into: ", self_item.rarity)
+			var target_slot_type = get_parent().get_parent().slot_name
+			print("Dropping: ", origin_item.get_json(), " into: ", target_slot_type)
+			
+			if target_slot_type == "head":
+				Equipment.in_use["head"] = origin_item.get_json()
+			elif target_slot_type == "chest":
+				Equipment.in_use["chest"] = origin_item.get_json()
+			elif target_slot_type == "feet":
+				Equipment.in_use["feet"] = origin_item.get_json()
+			elif target_slot_type == "weapon":
+				Equipment.in_use["weapon"] = origin_item.get_json()
+			elif target_slot_type == "shield":
+				Equipment.in_use["shield"] = origin_item.get_json()
+			elif target_slot_type == "hands":
+				Equipment.in_use["hands"] = origin_item.get_json()
+			elif target_slot_type == "trinket_1":
+				Equipment.in_use["trinket_1"] = origin_item.get_json()
+			elif target_slot_type == "trinket_2":
+				Equipment.in_use["trinket_2"] = origin_item.get_json()
 			
 			origin_item.queue_free()
 			var self_item_copy = self_item.get_copy()
@@ -66,24 +90,10 @@ func _drop_data(position, data):
 			origin_item_copy.position = Vector2(8, 8)
 			self_item_parent.add_child(origin_item_copy)
 			
-			if get_parent().get_parent().slot_name == "weapon":
-				self_item_copy.equipped = origin_item_copy.equipped
-				origin_item_copy.equipped = get_parent().get_parent().slot_name
-			elif get_parent().get_parent().slot_name == "shield":
-				self_item_copy.equipped = origin_item_copy.equipped
-				origin_item_copy.equipped = get_parent().get_parent().slot_name
-			elif get_parent().get_parent().slot_name == "hands":
-				self_item_copy.equipped = origin_item_copy.equipped
-				origin_item_copy.equipped = get_parent().get_parent().slot_name
-			elif get_parent().get_parent().slot_name == "head":
-				self_item_copy.equipped = origin_item_copy.equipped
-				origin_item_copy.equipped = get_parent().get_parent().slot_name
-			elif get_parent().get_parent().slot_name == "chest":
-				self_item_copy.equipped = origin_item_copy.equipped
-				origin_item_copy.equipped = get_parent().get_parent().slot_name
-			elif get_parent().get_parent().slot_name == "feet":
-				self_item_copy.equipped = origin_item_copy.equipped
-				origin_item_copy.equipped = get_parent().get_parent().slot_name
-			else:
-				self_item_copy.equipped = origin_item_copy.equipped
-				origin_item_copy.equipped = get_parent().get_parent().slot_name
+			self_item_copy.equipped = origin_item_copy.equipped
+			origin_item_copy.equipped = get_parent().get_parent().slot_name
+			
+			
+			#print("EQUIPMENT CHANGED", origin_item_copy.stats)
+			#print("Item dropped")
+			#emit_signal("item_dropped", origin_item_copy)

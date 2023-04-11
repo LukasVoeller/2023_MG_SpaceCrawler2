@@ -12,9 +12,8 @@ func _ready():
 	print("Instanced Player")
 	load_inventroy()
 
-#func init(_name, rar, lvl, upgr, val, tex_no, equ, _type):
+#func init(_name, _rar, _lvl, _upgr, _val, _tex_no, _equ, _type, _stats):
 func _on_Item_collected(item):
-	#print("Player item collected with rarity: ", item.rarity)
 	collected.append({
 		"item_name": item.item_name,
 		"rarity": item.rarity,
@@ -23,7 +22,8 @@ func _on_Item_collected(item):
 		"value": item.value,
 		"texture_no": item.texture_no,
 		"equipped": item.equipped,
-		"type": item.type
+		"type": item.type,
+		"stats": item.stats
 	})
 	#print("Collecte ITEM with tex_no: ", item.texture_no)
 	item.queue_free()
@@ -66,9 +66,8 @@ func save():
 	save_inventroy()
 	
 	var save_dict = {
-		"filename" : get_scene_file_path(),
-		"parent" : get_parent().get_path(),
+		"filename" : "res://src/game/player/Player.tscn",
 		"credits" : credits,
-		"max_dps" : max_dps,
+		"max_dps" : max_dps
 	}
 	return save_dict

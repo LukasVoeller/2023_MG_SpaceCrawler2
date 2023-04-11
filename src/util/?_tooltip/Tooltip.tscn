@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdvvnjc0ypsrs"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://src/util/tooltip/Tooltip.gd" id="1_jrxjl"]
+[ext_resource type="Script" path="res://src/util/?_tooltip/Tooltip.gd" id="1_jrxjl"]
 
 [node name="Tooltip" type="Popup"]
 size = Vector2i(300, 300)

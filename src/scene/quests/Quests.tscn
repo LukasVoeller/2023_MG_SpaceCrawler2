@@ -49,7 +49,7 @@ vertical_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control/Background"]
 layout_mode = 0
-offset_left = 108.0
+offset_left = 112.0
 offset_top = 184.0
 offset_right = 908.0
 offset_bottom = 1104.0

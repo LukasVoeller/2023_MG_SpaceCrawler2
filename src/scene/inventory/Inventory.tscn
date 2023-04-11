@@ -1,13 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://qnbiesnteplp"]
+[gd_scene load_steps=18 format=3 uid="uid://qnbiesnteplp"]
 
 [ext_resource type="Script" path="res://src/scene/inventory/Inventory.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dfu2t0mnhvywk" path="res://assets/ui/darkpixelrpg/bars/frame_2_512 × 512.png" id="2_084nm"]
 [ext_resource type="Texture2D" uid="uid://dq6a0cc840gqm" path="res://assets/ui/darkpixelrpg/buttons/rect-h/orange/button_orange_1.png" id="3_v5o6f"]
 [ext_resource type="PackedScene" uid="uid://bse16ghhh80i6" path="res://src/util/background/Background.tscn" id="4"]
 [ext_resource type="Texture2D" uid="uid://cffcqbikaqr43" path="res://assets/ui/darkpixelrpg/buttons/rect-h/orange/button_orange_1_pressed.png" id="4_e3hd4"]
-[ext_resource type="Texture2D" uid="uid://cej042o468ur2" path="res://assets/ui/darkpixelrpg/bars/frame_0.png" id="5_vrf0e"]
+[ext_resource type="Texture2D" uid="uid://ca3bxdcyakcut" path="res://assets/ui/darkpixelrpg/bars/frame_1_224 × 213.png" id="5_lst55"]
 [ext_resource type="Texture2D" uid="uid://dsh481vtr24nw" path="res://assets/ui/darkpixelrpg/player/player_knight.png" id="6_1b5bd"]
 [ext_resource type="FontFile" uid="uid://bi1dwkkedk1oh" path="res://assets/fonts/PixelSplitter-Bold.ttf" id="8_115k7"]
+[ext_resource type="Texture2D" uid="uid://gbp0hjnmwr0y" path="res://assets/ui/darkpixelrpg/decors/titles/title_main_2.png" id="8_vn000"]
 [ext_resource type="Texture2D" uid="uid://bmr47vsf6edta" path="res://assets/ui/darkpixelrpg/buttons/square/button_arrow_down.png" id="9_npy56"]
 [ext_resource type="Texture2D" uid="uid://birkxr65d08e8" path="res://assets/ui/darkpixelrpg/buttons/square/button_arrow_down_pressed.png" id="10_mf37o"]
 [ext_resource type="Texture2D" uid="uid://bf3tf05nhydhd" path="res://assets/ui/darkpixelrpg/buttons/square/button_arrow_up.png" id="11_gi1du"]
@@ -21,6 +22,7 @@
 script = ExtResource("2")
 
 [node name="Control" type="Control" parent="."]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -54,15 +56,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_084nm")
-
-[node name="BagBackground" type="TextureRect" parent="Control/Inventory/Background"]
-visible = false
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 1016.0
-offset_bottom = 952.0
-stretch_mode = 6
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control/Inventory"]
 layout_mode = 1
@@ -109,7 +102,7 @@ stretch_mode = 5
 layout_mode = 0
 offset_right = 360.0
 offset_bottom = 88.0
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "Sort"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -124,10 +117,11 @@ anchor_bottom = 0.5
 offset_left = -512.0
 offset_top = -960.0
 offset_right = 512.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="NinePatchRect" parent="Control/Player"]
+[node name="Background" type="TextureRect" parent="Control/Player"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -136,12 +130,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -512.0
-offset_top = -480.0
+offset_top = -496.0
 offset_right = 512.0
-offset_bottom = 480.0
+offset_bottom = 464.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_vrf0e")
+texture = ExtResource("5_lst55")
 
 [node name="GridContainerRight" type="GridContainer" parent="Control/Player/Background"]
 layout_mode = 1
@@ -150,10 +144,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 192.0
-offset_top = -288.0
-offset_right = 384.0
-offset_bottom = 288.0
+offset_left = 216.0
+offset_top = -376.0
+offset_right = 408.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -164,12 +158,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -384.0
-offset_top = -288.0
-offset_right = -192.0
-offset_bottom = 288.0
+offset_left = -408.0
+offset_top = -376.0
+offset_right = -216.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="GridContainerBottom" type="GridContainer" parent="Control/Player/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = 208.0
+offset_right = 408.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
 
 [node name="Knight" type="TextureRect" parent="Control/Player/Background"]
 texture_filter = 1
@@ -180,55 +189,73 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -192.0
-offset_top = -320.0
+offset_top = -376.0
 offset_right = 192.0
-offset_bottom = 320.0
+offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_1b5bd")
 stretch_mode = 5
 
-[node name="Playername" type="Label" parent="Control/Player/Background"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -384.0
-offset_top = 40.0
-offset_bottom = 96.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("8_115k7")
-theme_override_font_sizes/font_size = 32
-text = "Playername"
-vertical_alignment = 1
+[node name="Stats" type="Control" parent="Control/Player/Background"]
+anchors_preset = 0
+offset_left = 112.0
+offset_top = 720.0
+offset_right = 520.0
+offset_bottom = 880.0
 
-[node name="Level" type="Label" parent="Control/Player/Background"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_top = 40.0
-offset_right = 384.0
-offset_bottom = 96.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("8_115k7")
-theme_override_font_sizes/font_size = 32
-text = "Level 22"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Credits" type="Label" parent="Control/Player/Background"]
+[node name="Labels" type="VBoxContainer" parent="Control/Player/Background/Stats"]
 layout_mode = 0
-offset_left = 592.0
-offset_top = 808.0
-offset_right = 848.0
-offset_bottom = 856.0
-theme_override_font_sizes/font_size = 30
-text = "125.369 "
-horizontal_alignment = 2
-vertical_alignment = 1
+offset_right = 192.0
+offset_bottom = 160.0
+theme_override_constants/separation = 15
 
-[node name="TextureRect" type="TextureRect" parent="Control/Player/Background/Credits"]
+[node name="Damage" type="Label" parent="Control/Player/Background/Stats/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Damage:"
+
+[node name="Health" type="Label" parent="Control/Player/Background/Stats/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Health:"
+
+[node name="Armor" type="Label" parent="Control/Player/Background/Stats/Labels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Armor:"
+
+[node name="Values" type="VBoxContainer" parent="Control/Player/Background/Stats"]
+layout_mode = 0
+offset_left = 144.0
+offset_right = 336.0
+offset_bottom = 160.0
+theme_override_constants/separation = 15
+
+[node name="Damage" type="Label" parent="Control/Player/Background/Stats/Values"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "25"
+
+[node name="Health" type="Label" parent="Control/Player/Background/Stats/Values"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "100"
+
+[node name="Armor" type="Label" parent="Control/Player/Background/Stats/Values"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "50"
+
+[node name="Credits" type="Control" parent="Control/Player/Background"]
+visible = false
+anchors_preset = 0
+offset_left = 72.0
+offset_top = 840.0
+offset_right = 384.0
+offset_bottom = 888.0
+
+[node name="Coin" type="TextureRect" parent="Control/Player/Background/Credits"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 6
@@ -236,8 +263,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
+offset_left = -312.0
 offset_top = -24.0
-offset_right = 48.0
+offset_right = -264.0
 offset_bottom = 24.0
 grow_horizontal = 0
 grow_vertical = 2
@@ -245,28 +273,56 @@ texture = ExtResource("17")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="ShowStatsButton" type="TextureButton" parent="Control/Player"]
-texture_filter = 1
+[node name="Label" type="Label" parent="Control/Player/Background/Credits"]
 layout_mode = 0
-offset_left = 448.0
-offset_top = 864.0
-offset_right = 576.0
-offset_bottom = 992.0
-texture_normal = ExtResource("9_npy56")
-texture_pressed = ExtResource("10_mf37o")
+offset_left = 48.0
+offset_right = 312.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 25
+text = "53.125.369 "
+vertical_alignment = 1
+
+[node name="Title" type="TextureRect" parent="Control/Player"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = -56.0
+offset_right = 320.0
+offset_bottom = 72.0
+grow_horizontal = 2
+texture = ExtResource("8_vn000")
 stretch_mode = 5
 
-[node name="HideStatsButton" type="TextureButton" parent="Control/Player"]
-visible = false
-texture_filter = 1
-layout_mode = 0
-offset_left = 448.0
-offset_top = 864.0
-offset_right = 576.0
-offset_bottom = 992.0
-texture_normal = ExtResource("11_gi1du")
-texture_pressed = ExtResource("12_sf2i6")
-stretch_mode = 5
+[node name="Playername" type="Label" parent="Control/Player/Title"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -272.0
+offset_top = 32.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_115k7")
+theme_override_font_sizes/font_size = 32
+text = "Playername"
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="Control/Player/Title"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 32.0
+offset_right = 272.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_115k7")
+theme_override_font_sizes/font_size = 32
+text = "Level 22"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="StatsSheet" type="Control" parent="Control"]
 visible = false
@@ -300,6 +356,43 @@ text = "Comming soon!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ShowStatsButton" type="TextureButton" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -64.0
+offset_right = 48.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("9_npy56")
+texture_pressed = ExtResource("10_mf37o")
+stretch_mode = 5
+
+[node name="HideStatsButton" type="TextureButton" parent="Control"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -64.0
+offset_right = 48.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("11_gi1du")
+texture_pressed = ExtResource("12_sf2i6")
+stretch_mode = 5
+
 [node name="BackButton" type="TextureButton" parent="Control"]
 texture_filter = 1
 layout_mode = 1
@@ -308,8 +401,8 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -192.0
-offset_top = -192.0
+offset_left = -224.0
+offset_top = -224.0
 offset_right = -64.0
 offset_bottom = -64.0
 grow_horizontal = 0
@@ -321,9 +414,9 @@ stretch_mode = 5
 [node name="Background" parent="Control" instance=ExtResource("4")]
 
 [connection signal="pressed" from="Control/Inventory/Sort" to="." method="_on_sort_pressed"]
-[connection signal="pressed" from="Control/Player/ShowStatsButton" to="." method="_on_show_stats_button_pressed"]
-[connection signal="pressed" from="Control/Player/ShowStatsButton" to="Control" method="_on_ShowStatsButton_pressed"]
-[connection signal="pressed" from="Control/Player/HideStatsButton" to="." method="_on_hide_stats_button_pressed"]
-[connection signal="pressed" from="Control/Player/HideStatsButton" to="Control" method="_on_HideStatsButton_pressed"]
+[connection signal="pressed" from="Control/ShowStatsButton" to="." method="_on_show_stats_button_pressed"]
+[connection signal="pressed" from="Control/ShowStatsButton" to="Control" method="_on_ShowStatsButton_pressed"]
+[connection signal="pressed" from="Control/HideStatsButton" to="." method="_on_hide_stats_button_pressed"]
+[connection signal="pressed" from="Control/HideStatsButton" to="Control" method="_on_HideStatsButton_pressed"]
 [connection signal="pressed" from="Control/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Control/BackButton" to="Control" method="_on_back_button_pressed"]

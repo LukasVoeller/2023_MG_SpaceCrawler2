@@ -91,6 +91,7 @@ func level_up():
 	print("Level up!")
 	level += 1
 	exp_max = next_level(level + 1)
+	#hp_max += 100
 	exp_current = 0
 	hp_current = Global.spaceship_hp_max
 
@@ -218,7 +219,7 @@ func _on_Player_body_entered(body):
 		if body.type == "critdmg_lesser":
 			pass
 			
-	elif body is ItemWeapon or body is ItemShield or body is ItemHands or body is ItemHead or body is ItemChest or body is ItemFeet:
+	elif body is ItemWeapon or body is ItemShield or body is ItemHands or body is ItemHead or body is ItemChest or body is ItemFeet or body is ItemTrinket:
 		print("Item collision")
 		body.collect()
 			
@@ -229,8 +230,7 @@ func _on_ExplosionAnimation_animation_finished():
 	
 func save():
 	var save_dict = {
-		"filename" : get_scene_file_path(),
-		"parent" : get_parent().get_path(),
+		"filename" : "res://src/game/spaceship/Spaceship.tscn",
 		"level" : level,
 		"exp_max" : exp_max,
 		"exp_current" : exp_current,

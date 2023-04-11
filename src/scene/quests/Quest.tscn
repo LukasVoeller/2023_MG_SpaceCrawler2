@@ -10,17 +10,17 @@ texture_filter = 1
 custom_minimum_size = Vector2(775, 150)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 775.0
+offset_bottom = 150.0
 script = ExtResource("1_4fi6r")
 
 [node name="TextureButton" type="TextureButton" parent="."]
-custom_minimum_size = Vector2(768, 150)
 layout_mode = 0
-offset_right = 768.0
+offset_right = 704.0
 offset_bottom = 150.0
 texture_normal = ExtResource("2_53ouy")
 texture_pressed = ExtResource("3_4grmi")
+texture_focused = ExtResource("3_4grmi")
 stretch_mode = 5
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
@@ -32,7 +32,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -399.5
 offset_top = -14.0
-offset_right = 380.5
+offset_right = 316.5
 grow_horizontal = 2
 grow_vertical = 0
 value = 100.0
@@ -41,7 +41,7 @@ texture_progress = ExtResource("4_1vw0e")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 768.0
+offset_right = 704.0
 offset_bottom = 150.0
 theme_override_font_sizes/font_size = 40
 text = "Lorem ipsum"

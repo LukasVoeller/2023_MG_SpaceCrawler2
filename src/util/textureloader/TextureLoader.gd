@@ -15,18 +15,22 @@ func get_texture(type, rarity, tex_no):
 		var tex = load(tex_path)
 		return tex
 	if type == "hands":
-		var tex_path = "res://assets/items/armor/hands_" + str(rarity) + "_" + str(tex_no) + ".png"
+		var tex_path = "res://assets/items/hands/hands_" + str(rarity) + "_" + str(tex_no) + ".png"
 		var tex = load(tex_path)
 		return tex
 	if type == "head":
-		var tex_path = "res://assets/items/armor/head_" + str(rarity) + "_" + str(tex_no) + ".png"
+		var tex_path = "res://assets/items/heads/head_" + str(rarity) + "_" + str(tex_no) + ".png"
 		var tex = load(tex_path)
 		return tex
 	if type == "chest":
-		var tex_path = "res://assets/items/armor/chest_" + str(rarity) + "_" + str(tex_no) + ".png"
+		var tex_path = "res://assets/items/chests/chest_" + str(rarity) + "_" + str(tex_no) + ".png"
 		var tex = load(tex_path)
 		return tex
 	if type == "feet":
-		var tex_path = "res://assets/items/armor/feet_" + str(rarity) + "_" + str(tex_no) + ".png"
+		var tex_path = "res://assets/items/feet/feet_" + str(rarity) + "_" + str(tex_no) + ".png"
+		var tex = load(tex_path)
+		return tex
+	if type == "trinket":
+		var tex_path = "res://assets/items/trinkets/trinket_" + str(rarity) + "_" + str(tex_no) + ".png"
 		var tex = load(tex_path)
 		return tex

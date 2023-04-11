@@ -50,20 +50,19 @@ func _on_Projectile_body_entered(asteroid):
 	var col_radius = asteroid.get_node("CollisionShape2D").shape.radius
 	var angle = Vector2(0, -1)
 	
-	Global.damage_dealt_per_second += damage
-	if Global.damage_dealt_per_second > Global.damage_dealt_per_second_max:
-		Global.damage_dealt_per_second_max = Global.damage_dealt_per_second
-	
 	var dmg
-	var crit_chance_actual = p_crit_chance * 100
 	var crit_chance_calc = rng.randi_range(1, 100)
-	if crit_chance_calc <= crit_chance_actual:
-		#print("CRITICAL!")
-		dmg = int(damage * p_crit_damage)
+	var crit_damage_calc = 1 + (p_crit_damage / 100)
+	
+	if crit_chance_calc <= p_crit_chance:
+		dmg = int(damage * crit_damage_calc)
 		crit = true
 	else:
-		#print("Normal")
 		dmg = damage
+	
+	Global.damage_dealt_per_second += dmg
+	if Global.damage_dealt_per_second > Global.damage_dealt_per_second_max:
+		Global.damage_dealt_per_second_max = Global.damage_dealt_per_second
 		
 	asteroid.take_projectile_damage(dmg)
 	asteroid.show_damage(dmg, crit, asteroid.global_position)

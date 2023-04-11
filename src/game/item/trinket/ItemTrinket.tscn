@@ -1,18 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0y7rumylroew"]
+[gd_scene load_steps=6 format=3 uid="uid://blcfhtp3q1wi6"]
 
-[ext_resource type="Script" path="res://src/game/item/feet/ItemFeet.gd" id="1_7rjft"]
-[ext_resource type="Script" path="res://src/game/item/ItemDrag.gd" id="3_ksrgn"]
-[ext_resource type="PackedScene" uid="uid://dvegk5s3xp5pp" path="res://src/util/textureloader/TextureLoader.tscn" id="4_lx4mu"]
+[ext_resource type="Script" path="res://src/game/item/trinket/ItemTrinket.gd" id="1_brq2t"]
+[ext_resource type="Texture2D" uid="uid://bdbxknyxl4jfe" path="res://assets/items/trinkets/trinket_1_T1-1.png" id="2_vv6tv"]
+[ext_resource type="Script" path="res://src/game/item/ItemDrag.gd" id="3_qles5"]
+[ext_resource type="PackedScene" uid="uid://dvegk5s3xp5pp" path="res://src/util/textureloader/TextureLoader.tscn" id="4_ko71a"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4av8"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqmup"]
 size = Vector2(128, 128)
 
-[node name="ItemFeet" type="RigidBody2D"]
+[node name="ItemTrinket" type="RigidBody2D"]
 collision_layer = 64
 collision_mask = 86
 mass = 5.0
 gravity_scale = 0.0
-script = ExtResource("1_7rjft")
+script = ExtResource("1_brq2t")
 
 [node name="Texture2D" type="TextureRect" parent="."]
 texture_filter = 1
@@ -22,18 +23,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -56.0
-offset_top = -56.0
-offset_right = 56.0
-offset_bottom = 56.0
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(40, 40)
-stretch_mode = 4
-script = ExtResource("3_ksrgn")
+texture = ExtResource("2_vv6tv")
+stretch_mode = 5
+script = ExtResource("3_qles5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_p4av8")
+shape = SubResource("RectangleShape2D_cqmup")
 
 [node name="Background_1" type="Control" parent="."]
 layout_mode = 3
@@ -454,6 +456,6 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 0.568627, 0.164706, 1)
 
-[node name="TextureLoader" parent="." instance=ExtResource("4_lx4mu")]
+[node name="TextureLoader" parent="." instance=ExtResource("4_ko71a")]
 
 [connection signal="gui_input" from="Texture2D" to="Texture2D" method="_on_TestTexture_gui_input"]

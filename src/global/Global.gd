@@ -24,23 +24,21 @@ var star_speed_max = 1500
 
 
 ########## ITEM SETTINGS ##########
-var item_chance_min = 1
-var item_chance_max = 100
+var item_drop_chance = 50		# %
 var item_rarity_min = 1
 var item_rarity_max = 5
 
 
 ########## POWERUP SETTINGS ##########
-var powerup_chance_min = 1
-var powerup_chance_max = 100
+var powerup_drop_chance = 20	# %
 
 
 ########## WEAPON SETTINGS ##########
 var weapon_atk_speed = 0.5
-var weapon_projectiles = 1
-var weapon_level = 25
-var weapon_crit_chance = 0.1
-var weapon_crit_damage = 1.5
+var weapon_projectiles = 5
+var weapon_level = 1
+var weapon_crit_chance = 5		# %
+var weapon_crit_damage = 20		# %
 
 
 ########## STATISTICS ##########
@@ -49,6 +47,8 @@ var damage_dealt_per_second_average = 0
 var damage_dealt_per_second_max = 0
 var damage_dealt_per_second = 0
 var damage_dealt_total = 0
+
+var spaceship_level = 0
 
 
 ########## DEBUG ##########

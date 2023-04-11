@@ -7,60 +7,60 @@ var armor = 100
 func _ready():
 	pass # Replace with function body.
 
-func init(_name, rar, lvl, upgr, val, tex_no, equ, _type):
+func init(_name, _rar, _lvl, _upgr, _val, _tex_no, _equ, _type, _stats):
 	item_name = _name
-	rarity = rar
-	level = lvl
-	upgrade = upgr
-	value = val
-
-	texture_no = tex_no
-	equipped = equ
+	rarity = _rar
+	level = _lvl
+	upgrade = _upgr
+	value = _val
+	texture_no = _tex_no
+	equipped = _equ
 	type = _type
+	stats = _stats
 	
 	var tier_rng
 	
-	if rar == 1:
+	if rarity == 1:
 		$Background_1.show()
 		
 		rng.randomize()
 		tier_rng = rng.randi_range(1, 4)
 		
-		texture_no = "T" + str(tier_rng)
+		texture_no = "T" + str(tier_rng) + "-1"
 		$Texture2D.texture = $TextureLoader.get_texture("hands", rarity, texture_no)
 
-	if rar == 2:
+	if rarity == 2:
 		$Background_2.show()
 		
 		rng.randomize()
 		tier_rng = rng.randi_range(1, 4)
 		
-		texture_no = "T" + str(tier_rng)
+		texture_no = "T" + str(tier_rng) + "-1"
 		$Texture2D.texture = $TextureLoader.get_texture("hands", rarity, texture_no)
 
-	if rar == 3:
+	if rarity == 3:
 		$Background_3.show()
 		
 		rng.randomize()
 		tier_rng = rng.randi_range(1, 5)
 		
-		texture_no = "T" + str(tier_rng)
+		texture_no = "T" + str(tier_rng) + "-1"
 		$Texture2D.texture = $TextureLoader.get_texture("hands", rarity, texture_no)
 
-	if rar == 4:
+	if rarity == 4:
 		$Background_4.show()
 		
 		rng.randomize()
 		tier_rng = rng.randi_range(1, 5)
 		
-		texture_no = "T" + str(tier_rng)
+		texture_no = "T" + str(tier_rng) + "-1"
 		$Texture2D.texture = $TextureLoader.get_texture("hands", rarity, texture_no)
 
-	if rar == 5:
+	if rarity == 5:
 		$Background_5.show()
 		
 		rng.randomize()
 		tier_rng = rng.randi_range(1, 8)
 		
-		texture_no = "T" + str(tier_rng)
+		texture_no = "T" + str(tier_rng) + "-1"
 		$Texture2D.texture = $TextureLoader.get_texture("hands", rarity, texture_no)

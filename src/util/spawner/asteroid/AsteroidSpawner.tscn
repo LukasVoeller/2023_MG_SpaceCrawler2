@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dv7miuwh1cmvx"]
+[gd_scene load_steps=2 format=3 uid="uid://dnxksmfhsmty6"]
 
-[ext_resource type="Script" path="res://src/util/spawner/Spawner.gd" id="1"]
+[ext_resource type="Script" path="res://src/util/spawner/asteroid/AsteroidSpawner.gd" id="1"]
 
-[node name="Spawner" type="Node2D"]
+[node name="AsteroidSpawner" type="Node2D"]
 position = Vector2(-64, -64)
 script = ExtResource("1")
 
